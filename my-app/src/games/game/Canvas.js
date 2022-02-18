@@ -13,7 +13,7 @@ export default function Canvas() {
     const ctx = canvas.getContext('2d') 
 
     ////////////////////////////// VARIABLES AND CONSTANTS///////////////////
-    // Paddle description
+    // Paddle description 
     const paddle_width = 100;
     const paddle_height = 20;
     const paddle_margin_bottom = 50;
@@ -27,13 +27,31 @@ export default function Canvas() {
       dx: 5 //this is amount of pixels paddle will move to the right/left-- wont change
     }
 
+      // Draw ball object + initial position 
+      const ball_radius = 8;
+      const ball = {
+        // the x and y position is at the center of the circle
+        x: canvas.width / 2,
+        y: paddle.y - ball_radius,
+        radius: ball_radius,
+        speed: 4,
+        dx: 3 * (Math.random() * 2 - 1),  // this allows ball to go into random positions-- will generate random numbers between 3 and -
+        dy: -3
+      }
 
 
-    /////////////////////////////////DRAW PADDLE////////////////
-    ctx.fillStyle = 'yellow'
-    ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
-    ctx.strokeStyle = "#ffcd05";
-    ctx.strokeRect(paddle.x, paddle.y, paddle.width, paddle.height);
+
+    // /////////////////////////////////DRAW PADDLE////////////////
+    // ctx.fillStyle = 'yellow'
+    // ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+    // ctx.strokeStyle = "#ffcd05";
+    // ctx.strokeRect(paddle.x, paddle.y, paddle.width, paddle.height);
+
+    ////////////// DRAW BALL //////////////////////////////////
+    ctx.beginPath();
+    // takes in the ball's x and y position, radius and start angle and end angle (which is angle of circle)
+    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+    ctx.stroke(); //to draw circle
 
 
   }, [])
