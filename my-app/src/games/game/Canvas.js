@@ -52,10 +52,14 @@ export default function Canvas() {
       ////////////// DRAW BALL //////////////////////////////////
       ctx.clearRect(0, 0, canvas.width, canvas.height) // clears each new render of the circle so doesnt leave a trail
       ctx.beginPath();
+      ctx.fillStyle="yellow";
       // takes in the ball's x and y position, radius and start angle and end angle (which is angle of circle)
       ctx.arc(x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.strokeStyle="red";
+      ctx.strokeWidth=5;
+      ctx.fill();
       ctx.stroke(); //to draw circle
-       x++;
+       x += 8; //changes speed 
      
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
   
