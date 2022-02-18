@@ -4,8 +4,16 @@ import React from 'react'
 
 export default function Canvas() {
   return (
-    //this is our gameboard
-    <div>This is our game board/Canvas</div>
+    
+    <div className="canvas">
+      {/* this is our gameboard */}
+      {/* This is our game board/Canvas */}
+
+      {/* //return canvas */}
+      <canvas id="myCanvas" height="500" width="1000"/> 
+  </div>
+
+
   )
 }
 

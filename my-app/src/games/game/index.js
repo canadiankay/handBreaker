@@ -2,13 +2,14 @@
 // entry point into the game----- index.js
 import React from 'react'
 import Canvas from './Canvas.js'
+// Breakout
 
 
-export default function TheGame () {
+export default function Game () {
   return (
     <div>
 
-      <h1>This is the game component (i.e. canvas)</h1>
+      <h1>handBreaker</h1>
 
       <Canvas />
 

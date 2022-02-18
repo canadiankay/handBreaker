@@ -6,6 +6,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
+// import Canvas from './games/game/Canvas';
+// import TheGame from './games/game/index.js';
+import Game from './games/game/index.js';
 
 function App() {
   return (
@@ -22,9 +25,6 @@ function App() {
             <li>
               <Link to="/login">Login</Link>
             </li>
-            {/* <li>
-              <Link to="/game">handBreaker</Link>
-            </li> */}
           </ul>
         </nav>
 
@@ -39,11 +39,8 @@ function App() {
           </Route>
           <Route path="/">
             <h1>HOME</h1> 
+            <Game />
           </Route>
-          {/* <Route path="/game">
-            <h1>handBreaker</h1> 
-          </Route> */}
-
 
         </Switch>
       </div>
@@ -52,3 +49,6 @@ function App() {
 }
 
 export default App;
+
+
+
