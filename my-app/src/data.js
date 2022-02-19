@@ -12,8 +12,8 @@ export default {
     // x: 450,
     x: 100,
     // y: canvas.height - 70,///this is constant wont change in the game
-    y: 530,///this is constant wont change in the game
-    dx: 5, //this is amount of pixels paddle will move to the right/left-- wont change
+    // y: 530,///this is constant wont change in the game
+    // dx: 5, //this is amount of pixels paddle will move to the right/left-- wont change
     // color:"green"
   },
   ball:{

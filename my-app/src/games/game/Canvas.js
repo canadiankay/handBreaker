@@ -23,12 +23,15 @@ export default function Canvas() {
       //We can access the canvas element through the canvasRef now. Now we just need to get the context and start drawing
       const canvas = canvasRef.current //current is a property inside the useRef
       const ctx = canvas.getContext('2d') 
+      
+      // need to provide paddle.y for paddle-ball Collision since we dont have a y value in data.js
+      paddle.y = canvas.height - 30;
 
       /////////////// BRICK CREATION ///////////////////////////
       // before clearing canvas we will assign (a) brick(s)
       // we will initiate it with 2 rows ------- can change it to however many rows we want 
       // CreateBrick(brick, canvas, 2, bricks); // returns an array of objects
-            // ^this calls brick infinite amount of times
+      // ^this calls brick infinite amount of times
       let allBricks = CreateBrick(brick, canvas, 2, bricks); 
       // need to handle if all the bricks are undefined or empty 
       if (allBricks && allBricks.length > 0) {
@@ -80,6 +83,7 @@ export default function Canvas() {
       /////////////// Allow ball to bounce off paddle//////////////
       //handles ball-paddle collision
       PaddleCollision(paddle, ball)
+      // console.log("paddle", paddle, "ball:", ball);
       
       
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
