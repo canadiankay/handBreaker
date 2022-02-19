@@ -6,6 +6,7 @@ import data from '../../data'
 import WallCollision from './helpers/WallCollision';
 import {PaddleMovement} from './PaddleMovement';
 import CreateBrick from './Brick';
+import BrickCollision from './helpers/BrickCollision';
 
 let { ball, paddle, brick } = data;
 
@@ -24,7 +25,7 @@ export default function Canvas() {
 
       /////////////// BRICK CREATION ///////////////////////////
       // before clearing canvas we will assign (a) brick(s)
-      // we will initiate it with 2 rows
+      // we will initiate it with 2 rows ------- can change it to however many rows we want 
       // CreateBrick(brick, canvas, 2, bricks); // returns an array of objects
             // ^this calls brick infinite amount of times
       let allBricks = CreateBrick(brick, canvas, 2, bricks); 
@@ -41,18 +42,41 @@ export default function Canvas() {
       bricks.map((brick) => {
         return brick.draw(ctx);
       })
-  
+
+      
       // /////////////////////////////////DRAW + MOVE PADDLE////////////////
       // Paddle(ctx, canvas, paddle);
       PaddleMovement(ctx, canvas, paddle);
-  
+      
       
       ////////////// DRAW + MOVE BALL //////////////////////////////////
       BallMovement(ctx, ball);
-
+      
       ///////////Prevent Ball from hitting walls //////////////////////////////////
       WallCollision(canvas, ball);
-     
+      
+      ////////////////////// HANDLE BALL - BRICK COLLISION////////////////////
+      // handle brick collision 
+      let collision;
+
+      //needs to go through each and every single brick
+      for (let i = 0; i < bricks.length; i++) {
+        // if a collision has happened
+        collision = BrickCollision(ball, bricks[i]); //bricks[i] refers to the individual brick that was hit
+
+        if (collision.hit && !bricks[i].broke) { //if brick hit or not broken (see Brick Collision logic)
+          // console.log(collision);
+          if (collision.axis === "X") {
+            ball.dx *= -1; //if collision happened  divert the brick x-axis direction
+            bricks[i].broke = true; // and change its brocken value to be true (dont wanna see it)
+          
+          } else if (collision.axis === "Y") {
+            ball.dy *= -1;
+            bricks[i].broke = true;
+          }
+        }
+      }
+      
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
   
     };

@@ -2,7 +2,7 @@
 
 
 export default function CreateBrick(brick, canvas, row, bricks ) {
-  brick.width = canvas.width / 6 - 1 ; //we dont want width from brick object because the width is supposed to be dyanmic and based on the canvas width
+  brick.width = canvas.width / 5 - 1 ; //we dont want width from brick object because the width is supposed to be dyanmic and based on the canvas width
 
   let newBricks = [];
 
@@ -11,11 +11,11 @@ export default function CreateBrick(brick, canvas, row, bricks ) {
 
   //if all the rows--  decides how many rows/tiers there will be) 
   //if levels are filled, we dont want to display any more bricks
-  // we want six items in a row (if not, then go to the next line)
-  if (bricks.length >= 6 * row) return; 
+  // we want five items in a row (if not, then go to the next line)
+  if (bricks.length >= 5 * row) return; 
 
   // this creates bricks (6 is how many bricks in a level and row decides how many tiers there will be)
-  for (let i = 0; i < 6 * row; i++) { 
+  for (let i = 0; i < 5 * row; i++) { 
     let newBrick = new Brick(
       brick.x + brick.width,
       brick.y,
