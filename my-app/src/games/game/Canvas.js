@@ -112,7 +112,7 @@ export default function Canvas() {
 
       /////////////// Allow ball to bounce off paddle//////////////
       //handles ball-paddle collision
-      PaddleCollision(paddle, ball)
+      PaddleCollision(ball, paddle)
       // console.log("paddle", paddle, "ball:", ball);
 
 
