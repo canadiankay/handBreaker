@@ -6,13 +6,10 @@ import data from '../../data'
 import WallCollision from './helpers/WallCollision';
 import {PaddleMovement} from './PaddleMovement';
 
+let { ball, paddle } = data;
+
 export default function Canvas() {
-
-  let { ball, paddle } = data;
-
   const canvasRef = useRef(null) //initiate canvas as null first (from react) then we will utlizie it
-
-  
 
 //it's a component deadmount
   useEffect(() => {
@@ -21,24 +18,17 @@ export default function Canvas() {
       const ctx = canvas.getContext('2d') 
       ctx.clearRect(0, 0, canvas.width, canvas.height) // clears each new render of the circle so doesnt leave a trail
   
-
-
   
-  
-  
-      // /////////////////////////////////DRAW PADDLE////////////////
+      // /////////////////////////////////DRAW + MOVE PADDLE////////////////
       // Paddle(ctx, canvas, paddle);
       PaddleMovement(ctx, canvas, paddle);
   
-
       
       ////////////// DRAW + MOVE BALL //////////////////////////////////
       BallMovement(ctx, ball);
 
       ///////////Prevent Ball from hitting walls //////////////////////////////////
       WallCollision(canvas, ball);
-
- 
      
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
   
@@ -61,7 +51,12 @@ export default function Canvas() {
         id="myCanvas" 
         ref= {canvasRef} 
         height="600" 
-        width="1000"/> 
+        // width="1000"
+        width={ window.innerWidth - 25 }
+        onMouseMove={(event) => (paddle.x = event.clientX)} //allows paddle to move via mouse
+        
+        /> 
+        
   </div>
 
 
