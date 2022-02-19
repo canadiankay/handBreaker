@@ -30,7 +30,7 @@ export default {
     x: 0.5,
     y: 50,
     // width: canvas.width / 5 - 1,
-    // width: 50,
+    // width: 50, //we dont want width because the width is supposed to be dyanmic and based on the canvas width
     height: 20,
     density: 2,
     colors: ["blue", "orange"] //the second item changes the color of the bricks and everything-- find out why!
