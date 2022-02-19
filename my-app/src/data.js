@@ -34,6 +34,12 @@ export default {
     height: 20,
     density: 2,
     colors: ["blue", "orange"] //the second item changes the color of the bricks and everything-- find out why!
+  },
+  player: {
+    name: "LABBER",
+    lives: 3,
+    score: 0,
+    level: 1
   }
 
 }

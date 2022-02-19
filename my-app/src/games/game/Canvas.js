@@ -8,8 +8,9 @@ import {PaddleMovement} from './PaddleMovement';
 import CreateBrick from './Brick';
 import BrickCollision from './helpers/BrickCollision';
 import PaddleCollision from './helpers/PaddleCollision';
+import Player from './Player';
 
-let { ball, paddle, brick } = data;
+let { ball, paddle, brick, player } = data;
 
 // will have a state of bricks 
 let bricks = [];
@@ -24,7 +25,7 @@ export default function Canvas() {
       const canvas = canvasRef.current //current is a property inside the useRef
       const ctx = canvas.getContext('2d') 
       
-      // need to provide paddle.y for paddle-ball Collision since we dont have a y value in data.js
+      // need to provide y value for paddle-ball Collision since we dont have a y value in data.js
       paddle.y = canvas.height - 30;
 
       /////////////// BRICK CREATION ///////////////////////////
@@ -84,6 +85,11 @@ export default function Canvas() {
       //handles ball-paddle collision
       PaddleCollision(paddle, ball)
       // console.log("paddle", paddle, "ball:", ball);
+
+
+      //////////// DISPLAY PLAYER ////////////////
+      // Player logic --- displays their name, lives and score
+      Player(ctx, player, canvas);
       
       
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
