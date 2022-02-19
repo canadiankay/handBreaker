@@ -4,8 +4,11 @@
 // takes in bricks as an array of objects
 // player, canvas and ball (to change position of the ball once all bricks are broken)
 
+import data from "../../../data.js"
+
 
 export default function BrokenBricks(bricks, player, canvas, ball) {
+  let { brick }= data
   let total = 0;
   // check to see if each brick is broken
   for (let i = 0; i < bricks.length; i++) {
@@ -18,6 +21,9 @@ export default function BrokenBricks(bricks, player, canvas, ball) {
     alert("all bricks are broken!") // this gives us an alert as soon as it hits each inviidual brick :(
     player.level++;
     ball.y = canvas.height - 20;
+
+    // this is to prevent the rows from descending on canvas as each level progresses
+    brick.y = 50; // this is where we set the height of all the bricks originally
 
 
   }
