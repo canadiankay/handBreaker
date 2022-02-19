@@ -9,10 +9,12 @@ export default {
     width: 100,
     height:20,
     // x: canvas.width / 2 - 50,
-    x: 450,
+    // x: 450,
+    x: 100,
     // y: canvas.height - 70,///this is constant wont change in the game
     y: 530,///this is constant wont change in the game
-    dx: 5 //this is amount of pixels paddle will move to the right/left-- wont change
+    dx: 5, //this is amount of pixels paddle will move to the right/left-- wont change
+    // color:"green"
   },
   ball:{
     radius: 10,
