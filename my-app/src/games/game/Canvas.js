@@ -80,7 +80,7 @@ export default function Canvas() {
       BallMovement(ctx, ball);
       
       ///////////Prevent Ball from hitting walls //////////////////////////////////
-      WallCollision(canvas, ball, player);
+      WallCollision(canvas, ball, player, paddle);
 
 
       /////////////// Allow ball to bounce off paddle//////////////
