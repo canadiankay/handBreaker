@@ -35,7 +35,7 @@ export default function Canvas() {
       // we will initiate it with 2 rows ------- can change it to however many rows we want 
       // CreateBrick(brick, canvas, 2, bricks); // returns an array of objects
       // ^this calls brick infinite amount of times
-      let allBricks = CreateBrick(brick, canvas, 2, bricks); 
+      let allBricks = CreateBrick(player.level,bricks, canvas, brick); 
       // need to handle if all the bricks are undefined or empty 
       if (allBricks && allBricks.length > 0) {
         bricks = allBricks; // if they are then we assign it to bricks(empty array)
@@ -59,7 +59,7 @@ export default function Canvas() {
         bricks.length = 0;
 
         // position ball to start from paddle after lives lost
-        ResetBall(ball, player, canvas);
+        ResetBall(ball,canvas ,paddle );
 
 
       }
@@ -97,7 +97,7 @@ export default function Canvas() {
         }
       }
       /////////////////// CHECK IF BRICKS ARE BROKEN////////////////     
-      BrokenBricks(bricks, canvas, player, ball);
+      BrokenBricks(bricks, player, canvas, ball);
       
       // /////////////////////////////////DRAW + MOVE PADDLE////////////////
       // Paddle(ctx, canvas, paddle);
