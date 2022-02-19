@@ -50,12 +50,18 @@ export default function Canvas() {
       // restart/reset game if the player has no lives
       if (player.lives === 0) {
         alert ("GAME OVER! Press OK to restart")
+        //reset level to 1 after reset
+        player.level = 1;
+        player.lives = 3; //lives reset
+        // reset the score to 0 after reset
+        player.score = 0;
         //bricks reset to 0
-        bricks.length === 0;
-        player.lives = 3;
+        bricks.length = 0;
 
         // position ball to start from paddle after lives lost
         ResetBall(ball, player, canvas);
+
+
       }
 
       
