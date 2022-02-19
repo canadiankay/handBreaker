@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from 'react'
 import { BallMovement } from './BallMovement';
 import data from '../../data'
+import WallCollision from './helpers/WallCollision';
 
 export default function Canvas() {
 
@@ -32,18 +33,13 @@ export default function Canvas() {
   
       
       
-      ////////////// DRAW BALL //////////////////////////////////
+      ////////////// DRAW + MOVE BALL //////////////////////////////////
       BallMovement(ctx, ball);
 
-      // prevent ball from going beyond our canvas frame 
-      // top and bottom 
-      if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
-        ball.dy *= -1; //deflect it in the other direction
-      } 
-      //side walls
-      if (ball.x + ball.radius >= canvas.width || ball.x - ball.radius <= 0) {
-        ball.dx *= -1;
-      }
+      ///////////Prevent Ball from hitting walls //////////////////////////////////
+      WallCollision(canvas, ball);
+
+ 
      
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
   
