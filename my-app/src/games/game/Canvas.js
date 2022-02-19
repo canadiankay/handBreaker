@@ -40,7 +40,10 @@ export default function Canvas() {
       if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
         ball.dy *= -1; //deflect it in the other direction
       } 
-
+      //side walls
+      if (ball.x + ball.radius >= canvas.width || ball.x - ball.radius <= 0) {
+        ball.dx *= -1;
+      }
      
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
   
