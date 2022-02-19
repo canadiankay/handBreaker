@@ -9,11 +9,14 @@ import {
 // import Canvas from './games/game/Canvas';
 // import TheGame from './games/game/index.js';
 import Game from './games/game/index.js';
+import Nav from './games/game/Nav.js'
+
 
 function App() {
   return (
     <Router>
       <div>
+      <Nav />
         <nav>
           <ul>
             <li>
@@ -44,6 +47,8 @@ function App() {
 
         </Switch>
       </div>
+
+      
     </Router>
   );
 }
