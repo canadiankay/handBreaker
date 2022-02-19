@@ -53,7 +53,7 @@ export default function Canvas() {
         height="600" 
         // width="1000"
         width={ window.innerWidth - 25 }
-        onMouseMove={(event) => (paddle.x = event.clientX)} //allows paddle to move via mouse
+        onMouseMove={(event) => (paddle.x = event.clientX - paddle.width / 2)} //allows paddle to move via mouse
         
         /> 
         
