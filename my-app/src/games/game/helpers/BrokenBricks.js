@@ -9,7 +9,7 @@ import ResetBall from "./ResetBall.js";
 
 
 export default function BrokenBricks(bricks, player, canvas, ball) {
-  let { brick }= data
+  let { brick, paddle }= data
 
   let total = 0;
   // check to see if each brick is broken
