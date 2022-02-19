@@ -28,7 +28,7 @@ export default function Canvas() {
       
       // need to provide y value for paddle-ball Collision since we dont have a y value in data.js
       paddle.y = canvas.height - 30;
-
+      
       /////////////// BRICK CREATION ///////////////////////////
       // before clearing canvas we will assign (a) brick(s)
       // we will initiate it with 2 rows ------- can change it to however many rows we want 
@@ -39,8 +39,20 @@ export default function Canvas() {
       if (allBricks && allBricks.length > 0) {
         bricks = allBricks; // if they are then we assign it to bricks(empty array)
       }
-
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height) // clears each new render of the circle so doesnt leave a trail
+
+      //////////// DISPLAY PLAYER ////////////////
+      // Player logic --- displays their name, lives and score
+      Player(ctx, player, canvas);
+
+      // restart/reset game if the player has no lives
+      if (player.lives === 0) {
+        alert ("GAME OVER! Press OK to restart")
+        //bricks reset to 0
+        bricks.length === 0;
+        player.lives = 3;
+      }
   
       //////////////////// DISPLAY BRICKS////////////////////////////
       // as soon as we have bricks, we want to draw/display each individual brick on the canvas
@@ -92,9 +104,6 @@ export default function Canvas() {
       // console.log("paddle", paddle, "ball:", ball);
 
 
-      //////////// DISPLAY PLAYER ////////////////
-      // Player logic --- displays their name, lives and score
-      Player(ctx, player, canvas);
       
       
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
