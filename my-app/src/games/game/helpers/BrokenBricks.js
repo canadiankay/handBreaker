@@ -15,7 +15,7 @@ export default function BrokenBricks(bricks, player, canvas, ball) {
   }
   // if all bricks broken (total matches number of bricks i.e. 0) then go to next level
   if (total === bricks.length) {
-    //alert("all bricks are broken!") // this gives us an alert as soon as it hits each inviidual brick :(
+    alert("all bricks are broken!") // this gives us an alert as soon as it hits each inviidual brick :(
     player.level++;
     ball.y = canvas.height - 20;
 

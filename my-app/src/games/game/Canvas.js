@@ -9,6 +9,7 @@ import CreateBrick from './Brick';
 import BrickCollision from './helpers/BrickCollision';
 import PaddleCollision from './helpers/PaddleCollision';
 import Player from './Player';
+import BrokenBricks from './helpers/BrokenBricks';
 
 let { ball, paddle, brick, player } = data;
 
@@ -71,6 +72,8 @@ export default function Canvas() {
           player.score += 2;
         }
       }
+      /////////////////// CHECK IF BRICKS ARE BROKEN////////////////     
+      BrokenBricks(bricks, canvas, player, ball);
       
       // /////////////////////////////////DRAW + MOVE PADDLE////////////////
       // Paddle(ctx, canvas, paddle);
