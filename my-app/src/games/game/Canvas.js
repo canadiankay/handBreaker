@@ -7,6 +7,7 @@ import WallCollision from './helpers/WallCollision';
 import {PaddleMovement} from './PaddleMovement';
 import CreateBrick from './Brick';
 import BrickCollision from './helpers/BrickCollision';
+import PaddleCollision from './helpers/PaddleCollision';
 
 let { ball, paddle, brick } = data;
 
@@ -43,18 +44,6 @@ export default function Canvas() {
         return brick.draw(ctx);
       })
 
-      
-      // /////////////////////////////////DRAW + MOVE PADDLE////////////////
-      // Paddle(ctx, canvas, paddle);
-      PaddleMovement(ctx, canvas, paddle);
-      
-      
-      ////////////// DRAW + MOVE BALL //////////////////////////////////
-      BallMovement(ctx, ball);
-      
-      ///////////Prevent Ball from hitting walls //////////////////////////////////
-      WallCollision(canvas, ball);
-      
       ////////////////////// HANDLE BALL - BRICK COLLISION////////////////////
       // handle brick collision 
       let collision;
@@ -76,6 +65,22 @@ export default function Canvas() {
           }
         }
       }
+      
+      // /////////////////////////////////DRAW + MOVE PADDLE////////////////
+      // Paddle(ctx, canvas, paddle);
+      PaddleMovement(ctx, canvas, paddle);
+      
+      ////////////// DRAW + MOVE BALL //////////////////////////////////
+      BallMovement(ctx, ball);
+      
+      ///////////Prevent Ball from hitting walls //////////////////////////////////
+      WallCollision(canvas, ball);
+
+
+      /////////////// Allow ball to bounce off paddle//////////////
+      //handles ball-paddle collision
+      PaddleCollision(paddle, ball)
+      
       
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
   
