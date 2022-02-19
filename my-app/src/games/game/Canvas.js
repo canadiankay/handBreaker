@@ -55,7 +55,7 @@ export default function Canvas() {
         player.lives = 3; //lives reset
         // reset the score to 0 after reset
         player.score = 0;
-        //bricks reset to 0
+        //bricks reset to 0 for the first level
         bricks.length = 0;
 
         // position ball to start from paddle after lives lost
