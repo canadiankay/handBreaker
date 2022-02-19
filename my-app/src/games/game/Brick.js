@@ -2,7 +2,7 @@
 
 
 export default function CreateBrick(brick, canvas, row, bricks ) {
-  brick.width = canvas.width /6 ; //we dont want width from brick object because the width is supposed to be dyanmic and based on the canvas width
+  brick.width = canvas.width / 6 - 1 ; //we dont want width from brick object because the width is supposed to be dyanmic and based on the canvas width
 
   let newBricks = [];
 
