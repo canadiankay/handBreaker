@@ -10,6 +10,7 @@ import BrickCollision from './helpers/BrickCollision';
 import PaddleCollision from './helpers/PaddleCollision';
 import Player from './Player';
 import BrokenBricks from './helpers/BrokenBricks';
+import ResetBall from './helpers/ResetBall'
 
 let { ball, paddle, brick, player } = data;
 
@@ -52,7 +53,12 @@ export default function Canvas() {
         //bricks reset to 0
         bricks.length === 0;
         player.lives = 3;
+
+        // position ball to start from paddle after lives lost
+        ResetBall(ball, player, canvas);
       }
+
+      
   
       //////////////////// DISPLAY BRICKS////////////////////////////
       // as soon as we have bricks, we want to draw/display each individual brick on the canvas
