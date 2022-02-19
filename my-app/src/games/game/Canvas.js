@@ -67,6 +67,8 @@ export default function Canvas() {
             ball.dy *= -1;
             bricks[i].broke = true;
           }
+          // everytime a brick is hit, we want to increment the score by 2
+          player.score += 2;
         }
       }
       
