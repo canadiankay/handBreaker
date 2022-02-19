@@ -4,10 +4,11 @@ import React, { useRef, useEffect } from 'react'
 import { BallMovement } from './BallMovement';
 import data from '../../data'
 import WallCollision from './helpers/WallCollision';
+import {PaddleMovement} from './PaddleMovement';
 
 export default function Canvas() {
 
-  let { ball } = data;
+  let { ball, paddle } = data;
 
   const canvasRef = useRef(null) //initiate canvas as null first (from react) then we will utlizie it
 
@@ -26,12 +27,10 @@ export default function Canvas() {
   
   
       // /////////////////////////////////DRAW PADDLE////////////////
-      // ctx.fillStyle = 'yellow'
-      // ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
-      // ctx.strokeStyle = "#ffcd05";
-      // ctx.strokeRect(paddle.x, paddle.y, paddle.width, paddle.height);
+      // Paddle(ctx, canvas, paddle);
+      PaddleMovement(ctx, canvas, paddle);
   
-      
+
       
       ////////////// DRAW + MOVE BALL //////////////////////////////////
       BallMovement(ctx, ball);
