@@ -6,7 +6,7 @@ import data from '../../data'
 
 export default function Canvas() {
 
-  let { ball } = data
+  let { ball } = data;
 
   const canvasRef = useRef(null) //initiate canvas as null first (from react) then we will utlizie it
 
@@ -33,7 +33,14 @@ export default function Canvas() {
       
       
       ////////////// DRAW BALL //////////////////////////////////
-      BallMovement(ctx, ball)
+      BallMovement(ctx, ball);
+
+      // prevent ball from going beyond our canvas frame 
+      // top and bottom 
+      if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
+        ball.dy *= -1; //deflect it in the other direction
+      } 
+
      
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
   
