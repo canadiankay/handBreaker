@@ -26,5 +26,14 @@ export default {
     dx: 3 * (Math.random() * 2 - 1),  // this allows ball to go into random positions-- will generate random numbers between 3 and -
     dy: -3
   },
+  brick: {
+    x: 0.5,
+    y: 50,
+    // width: canvas.width / 5 - 1,
+    // width: 50,
+    height: 20,
+    density: 2,
+    colors: ["blue", "orange"] //the second item changes the color of the bricks and everything-- find out why!
+  }
 
 }
