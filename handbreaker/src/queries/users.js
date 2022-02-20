@@ -8,7 +8,8 @@ function createUser(user) {
   return pool
     .query(`
     INSERT INTO users (username, password, email)
-    VALUES($1, $2, $3);
+    VALUES($1, $2, $3)
+    RETURNING id;
     `, values)
 }
 
