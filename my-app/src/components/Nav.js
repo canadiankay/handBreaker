@@ -7,7 +7,7 @@ function Nav() {
       <ul>
         <li>
           <Popup  
-            trigger={<button text='Register'/>} 
+            trigger={<button text='Register'>REGISTER</button>} 
             position="bottom center">
               <h4>Username:<input placeholder='Username'></input></h4>
               <h4>Email:<input placeholder='example@gmail.com'></input></h4>
@@ -18,7 +18,7 @@ function Nav() {
         </li>
 
         <li>
-          <Popup trigger={<button text='Login' />} 
+          <Popup trigger={<button text='Login'>LOGIN</button>} 
             position="bottom center">
               <h4>Username:<input placeholder='Username'></input></h4>
               <h4>Password:<input placeholder='Password'></input></h4>
