@@ -4,12 +4,10 @@ import 'reactjs-popup/dist/index.css';
 function Nav() {
   return (
     <nav className={navStyles.nav}>
-
-      
-
       <ul>
         <li>
-          <Popup  trigger={<button> Register </button>} 
+          <Popup  
+            trigger={<button text='Register'/>} 
             position="bottom center">
               <h4>Username:<input placeholder='Username'></input></h4>
               <h4>Email:<input placeholder='example@gmail.com'></input></h4>
@@ -20,7 +18,7 @@ function Nav() {
         </li>
 
         <li>
-          <Popup trigger={<button> Login </button>} 
+          <Popup trigger={<button text='Login' />} 
             position="bottom center">
               <h4>Username:<input placeholder='Username'></input></h4>
               <h4>Password:<input placeholder='Password'></input></h4>
