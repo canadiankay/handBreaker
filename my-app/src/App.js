@@ -9,7 +9,7 @@ import {
 // import Canvas from './games/game/Canvas';
 // import TheGame from './games/game/index.js';
 import Game from './games/game/index.js';
-import Nav from './games/game/Nav.js'
+import Nav from './components/Nav.js'
 
 
 function App() {
