@@ -5,7 +5,6 @@ const Footer = () => {
     <footer>
 
       <p>Copyright DMN Games &copy; 2022</p>
-
       <a href="/about">ABOUT US</a>
 
 
