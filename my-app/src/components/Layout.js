@@ -28,7 +28,9 @@ const Layout = () => {
         )} 
       /> 
 
-          To go to the game, type /game in browswer
+      <h2>
+        Go to <a href="/game"> THE GAME</a>
+      </h2>
       <Route path="/game" component={Game}></Route>
 
 
