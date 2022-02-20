@@ -4,6 +4,7 @@ import styles from '../styles/layout.css'
 // import nav bar and header
 import Nav from './nav'
 import Header from './header'
+import Footer from './footer'
 
 
 const Layout = () => {
@@ -11,6 +12,7 @@ const Layout = () => {
     <div className={styles.container}>
       <Nav />
       <Header />
+      <Footer />
     <div/>
       
     
