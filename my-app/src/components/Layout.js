@@ -23,7 +23,7 @@ const Layout = () => {
     <div>
       <Nav />
       
-      <Route path="/" component={Header} />
+      {<Route exact to path="/" component={Header} />}
 
 
       <main>
