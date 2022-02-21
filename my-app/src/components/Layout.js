@@ -23,12 +23,19 @@ const Layout = () => {
     <div>
       <Nav />
       
-      {<Route exact to path="/" component={Header} />}
+      {<Route 
+        exact to path="/" 
+        render={() =>
+          <> 
+            <Header />
+            <main>
+              <GameList /> 
+            </main>
+          </>
+        }
+      />}
 
 
-      <main>
-        <GameList /> 
-      </main>
 
       <Route path="/game" component={Game}></Route>
 

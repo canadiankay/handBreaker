@@ -6,7 +6,8 @@ const GameList = () => {
   return (
     <div>
       <body style={{height:"200px"}}>
-        <h2>Go to <a href="/game"> THE GAME</a></h2>
+        <p> this is the game list</p>
+        <h2> but Go to <a href="/game"> THE GAME HERE</a></h2>
       </body>
     </div>
   )
