@@ -1,15 +1,29 @@
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import logo from "../imgs/DMN-Games-Logo.png"
+
+
 function Nav() {
+
+  const navStyles={
+    background:"orange",
+    display:"flex",
+    alignItems: "center",
+    justifyContent:"space-around",
+    color: "white",
+    width: "100%"
+  }
+  
   return (
-    <nav>
+    <nav style={navStyles}>
       {/* insert logo */}
       <img src={logo} />
 
+  
       <a href="/">HOME</a>
 
       <a href="/about">ABOUT US</a>
+
 
       <Popup  
         trigger={<button text='Register'>REGISTER</button>} 
