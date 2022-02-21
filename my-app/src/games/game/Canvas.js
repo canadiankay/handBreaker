@@ -49,7 +49,7 @@ export default function Canvas() {
 
       // restart/reset game if the player has no lives
       if (player.lives === 0) {
-        alert ("GAME OVER! Press OK to restart")
+        // alert ("GAME OVER! Press OK to restart")
         //reset level to 1 after reset
         player.level = 1;
         player.lives = 3; //lives reset
