@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 // entry point into the game----- index.js
 import React from 'react'
 import Canvas from './Canvas.js'
+import Popup from 'reactjs-popup';
 
 
 import Button from '../../components/Button.js'
@@ -31,11 +32,19 @@ export default function Game () {
       </section>
 
       <section>
-        <Button 
-          color='ORANGE' 
-          text='YOUR SCORES' 
-          onClick={onClick} 
-          input="submit" />
+        <Popup trigger={
+          <Button 
+            color='ORANGE' 
+            text='YOUR SCORES' 
+            onClick={onClick} 
+            input="submit" 
+          />}
+          position="middle"
+        >
+          <h4>YOUR SCORE:</h4>
+          <h4>DATE:</h4>
+
+        </Popup>
       </section>
 
       <main>
