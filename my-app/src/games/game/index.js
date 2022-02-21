@@ -1,5 +1,5 @@
-import Popup from 'reactjs-popup';
 
+import { useHistory } from "react-router-dom";
 //the main game component-- handbreaker
 // entry point into the game----- index.js
 import React from 'react'
@@ -10,6 +10,10 @@ import Button from '../../components/Button.js'
 
 
 export default function Game () {
+
+  const history = useHistory();
+  const goToLeadearboard = () => history.push('/leaderboard');//eg.history.push('/login');
+
   const onClick = () => {
     console.log("clicked")
 
@@ -17,12 +21,12 @@ export default function Game () {
   return (
     <div>
 
-      <h1> HANDBREAKER </h1>
+      <h1> HANDBREAKER</h1>
       <section>
         <Button 
           color='YELLOW' 
           text='LEADERBOARD' 
-          onClick={onClick} 
+          onClick={goToLeadearboard} 
           input="submit" />
       </section>
 
