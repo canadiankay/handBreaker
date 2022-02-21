@@ -13,12 +13,22 @@ import Button from '../../components/Button.js'
 export default function Game () {
 
   const history = useHistory();
-  const goToLeadearboard = () => history.push('/leaderboard');//eg.history.push('/login');
+  const goToLeaderboard = () => history.push('/leaderboard');//eg.history.push('/login');
 
   const onClick = () => {
     console.log("clicked")
-
   }
+
+  const mainStyles ={
+    padding:"32px",
+    display:"flex",
+    flexDirection:"column",
+    alignItems:"center",
+    justifyContent:"center",
+    minHeight:"100vh"
+  }
+
+
   return (
     <div>
 
@@ -27,7 +37,7 @@ export default function Game () {
         <Button 
           color='YELLOW' 
           text='LEADERBOARD' 
-          onClick={goToLeadearboard} 
+          onClick={goToLeaderboard} 
           input="submit" />
       </section>
 
@@ -46,8 +56,10 @@ export default function Game () {
 
         </Popup>
       </section>
-
-      <main>
+  
+      <main classname={mainStyles}>
+        <h2>Ready to Play?</h2>
+        <button>START</button>
         <Canvas />
       </main>
 
