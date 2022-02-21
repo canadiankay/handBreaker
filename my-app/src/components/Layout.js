@@ -13,6 +13,7 @@ import Footer from './Footer'
 import About from './About.js'
 import Game from '../games/game/index.js'
 import GameList from './GameList'
+import Leaderboard from './Leaderboard.js'
 
 
 
@@ -32,6 +33,8 @@ const Layout = () => {
       <Route path="/game" component={Game}></Route>
 
       <Route path="/about" component={About} />
+
+      <Route path="/leaderboard" component={Leaderboard} />
 
       <Footer />
       
