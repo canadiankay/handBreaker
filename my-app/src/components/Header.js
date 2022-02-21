@@ -1,8 +1,11 @@
-import React from 'react'
+import styles from '../styles/Layout.css'
 
 const Header = () => {
   return (
-    <div>Header</div>
+      <header>
+       Welcome to DMN Games 🕹 🎮✨
+      </header>
+    
   )
 }
 
