@@ -1,59 +1,58 @@
-// deals mostly with the routes
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-// import Canvas from './games/game/Canvas';
-// import TheGame from './games/game/index.js';
-import Game from './games/game/index.js';
-import Nav from './games/game/Nav.js'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { getAuth } from "firebase/auth";
 
+import Game from "./games/game/index.js";
+import Nav from "./games/game/Nav.js";
+import "./App.css";
+import Login from "./screens/Login";
+import firebaseApp from "./firebase";
+import { useState } from "react";
 
 function App() {
+  // initialize firebase auth module
+  const auth = getAuth(firebaseApp);
+
+  const [isLoggedIn, toggleLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+
   return (
     <Router>
       <div>
-      <Nav />
+        <Nav isLoggedIn={isLoggedIn} />
         <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
+            {!isLoggedIn && (
+              <>
+                <li>
+                  <Link to="/register">Register</Link>
+                </li>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/register">
-            <h1>REGISTER</h1> 
-          </Route>
-          <Route path="/login">
-            <h1>LOGIN</h1> 
-          </Route>
-          <Route path="/">
-            <h1>HOME</h1> 
-            <Game />
-          </Route>
-
-        </Switch>
+        <Routes>
+          <Route path="register" element={<h1>Register</h1>} />
+          <Route
+            path="login"
+            element={
+              <Login
+                auth={auth}
+                toggleLoggedIn={toggleLoggedIn}
+                setUserInfo={setUserInfo}
+              />
+            }
+          />
+          <Route path="/" element={<Game user={userInfo} />} />
+        </Routes>
       </div>
-
-      
     </Router>
   );
 }
 
 export default App;
-
-
-

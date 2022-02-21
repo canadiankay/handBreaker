@@ -1,19 +1,13 @@
-//the main game component-- handbreaker
-// entry point into the game----- index.js
-import React from 'react'
-import Canvas from './Canvas.js'
+import React from "react";
+import Canvas from "./Canvas.js";
 // Breakout
 
-
-export default function Game () {
+export default function Game({ user }) {
   return (
     <div>
-
       <h1>handBreaker</h1>
 
-      <Canvas />
-
+      <Canvas user={user} />
     </div>
-  )
+  );
 }
-
