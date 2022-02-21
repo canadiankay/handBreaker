@@ -19,8 +19,10 @@ const StartButton = ({ callback }) => {
   }
 
   return (
+
     <div>
       <button style={startStyles} onClick={callback}>START GAME</button>
+      
     </div>
 
 

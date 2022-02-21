@@ -9,6 +9,7 @@ import Button from '../../components/Button.js'
 import Popup1 from '../../components/Popup1.js'
 
 
+
 export default function Game () {
   // this will set that variable for the pop up to true 
   const [gamePopup, setGamePopup] = useState(false);
@@ -70,9 +71,6 @@ useEffect(() => {
       <main classname={mainStyles}>
         <h2>Ready to Play?</h2>
         <button onClick={()=> setGamePopup(true) }>START</button>
-        <Canvas />
-      </main>
-
         {/* this pop up will only appear if true */}
         <Popup1 trigger={gamePopup} setTrigger={setGamePopup}>
             <h2>my Pop up</h2>
@@ -80,10 +78,16 @@ useEffect(() => {
         </Popup1>
 
           {/* this is our timed popup */}
-        <Popup1 trigger={timedPopup} setTrigger={setTimedPopup}>
+        {/* <Popup1 trigger={timedPopup} setTrigger={setTimedPopup}>
             <h2>my Timed Pop up</h2>
             <p>My time triggered pop up</p>
-        </Popup1>
+        </Popup1> */}
+      </main>
+        
+        <Canvas />
+
+      
+
 
 
 

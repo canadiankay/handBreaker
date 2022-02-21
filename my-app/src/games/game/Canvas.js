@@ -11,6 +11,7 @@ import PaddleCollision from './helpers/PaddleCollision';
 import Player from './Player';
 import BrokenBricks from './helpers/BrokenBricks';
 import ResetBall from './helpers/ResetBall'
+import StartButton from './StartButton.js'
 
 let { ball, paddle, brick, player } = data;
 
@@ -130,25 +131,30 @@ export default function Canvas() {
 
   return (
     
-    <div className="canvas">
-      {/* this is our gameboard */}
-      {/* This is our game board/Canvas */}
+    <div> 
+      {/* we want to show start button first then canvas */}
+      <div>
+      <StartButton />
+      </div>
+      <div className="canvas">
+        {/* this is our gameboard */}
+        {/* This is our game board/Canvas */}
 
-      {/* //return canvas-- styling is in app.css */}
-      <canvas 
-        id="myCanvas" 
-        ref= {canvasRef} 
-        height="600" 
-        width="1000"
-        // width={ window.innerWidth - 25 }
-        //allows paddle to move via mouse
-        //onMouseMove={(event) => {paddle.x = event.clientX - paddle.width / 2; console.log(paddle.x)}} // this works with width being inner width
-        onMouseMove={(event) => {
-          paddle.x = event.clientX - 500; 
-          // console.log(paddle.x)
-        }} // this works with setting width to 1000
-        
-        /> 
+        {/* //return canvas-- styling is in app.css */}
+        <canvas 
+          id="myCanvas" 
+          ref= {canvasRef} 
+          height="600" 
+          width="1000"
+          // width={ window.innerWidth - 25 }
+          //allows paddle to move via mouse
+          //onMouseMove={(event) => {paddle.x = event.clientX - paddle.width / 2; console.log(paddle.x)}} // this works with width being inner width
+          onMouseMove={(event) => {
+            paddle.x = event.clientX - 500; 
+            // console.log(paddle.x)
+          }} // this works with setting width to 1000
+          /> 
+      </div>
         
   </div>
 
