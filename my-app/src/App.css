@@ -1,3 +1,10 @@
+/* this styles the whole site */
+body {
+  color: #ffffff;
+  /* background-color: #1bafdb; */
+  background-image: url("./imgs/background1.jpeg")
+} 
+
 
 .canvas {
   display: flex;
