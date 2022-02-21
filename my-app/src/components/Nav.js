@@ -9,15 +9,16 @@ function Nav() {
     background:"orange",
     display:"flex",
     alignItems: "center",
-    justifyContent:"space-around",
+    justifyContent:"space-evenly",
     color: "white",
-    width: "100%"
+    width: "100%",
+    height: "100px"
   }
-  
+
   return (
     <nav style={navStyles}>
       {/* insert logo */}
-      <img src={logo} />
+      <img src={logo} width="90px" height="90px" border-radius="50%" />
 
   
       <a href="/">HOME</a>
