@@ -13,9 +13,14 @@ export default function Game () {
   // this will set that variable for the pop up to true 
   const [gamePopup, setGamePopup] = useState(false);
   const [timedPopup, setTimedPopup] = useState();
+  // this makes second pop up trigger after 3 seconds
+  // useEffect allows it to only be called once instead of every second
+useEffect(() => {
   setTimeout(() => {
     setTimedPopup(true);
   }, 3000)
+
+}, []);
 
   const history = useHistory();
   const goToLeaderboard = () => history.push('/leaderboard');//eg.history.push('/login');
