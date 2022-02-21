@@ -4,6 +4,10 @@ import 'reactjs-popup/dist/index.css';
 function Nav() {
   return (
     <nav className={navStyles.nav}>
+      <a href="/">HOME</a>
+
+      <a href="/about">ABOUT US</a>
+
       <ul>
           <Popup  
             trigger={<button text='Register'>REGISTER</button>} 
@@ -22,10 +26,6 @@ function Nav() {
               <input type="Submit" value="Submit"></input>
           </Popup>
     
-          <Popup trigger={<button> Leaderboard </button>} 
-            position="bottom center">
-              <h4>this is a placeholder for the leaderboard</h4>
-          </Popup>
         </ul>
     </nav>
   )
