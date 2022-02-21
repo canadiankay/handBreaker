@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import React from 'react'
 import Canvas from './Canvas.js'
 import Popup from 'reactjs-popup';
+import Popup1 from '../../components/Popup1.js'
 
 
 import Button from '../../components/Button.js'
@@ -60,6 +61,10 @@ export default function Game () {
       <main classname={mainStyles}>
         <h2>Ready to Play?</h2>
         <button>START</button>
+        {/* this pop up will only appear if true */}
+        <Popup1 trigger={true}>
+            <h2>my Pop up</h2>
+        </Popup1>
         <Canvas />
       </main>
 
