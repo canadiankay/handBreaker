@@ -5,7 +5,6 @@ function Nav() {
   return (
     <nav className={navStyles.nav}>
       <ul>
-        <li>
           <Popup  
             trigger={<button text='Register'>REGISTER</button>} 
             position="bottom center">
@@ -15,23 +14,18 @@ function Nav() {
               <h4>Confirm Password:<input placeholder='Confirm password'></input></h4>
               <input type="Submit" value="Submit"></input>
           </Popup>
-        </li>
 
-        <li>
           <Popup trigger={<button text='Login'>LOGIN</button>} 
             position="bottom center">
               <h4>Username:<input placeholder='Username'></input></h4>
               <h4>Password:<input placeholder='Password'></input></h4>
               <input type="Submit" value="Submit"></input>
           </Popup>
-        </li>
-
-        <li>
+    
           <Popup trigger={<button> Leaderboard </button>} 
             position="bottom center">
               <h4>this is a placeholder for the leaderboard</h4>
           </Popup>
-        </li>
         </ul>
     </nav>
   )
