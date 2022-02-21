@@ -1,4 +1,4 @@
-import navStyles from '../styles/nav.css'
+import navStyles from '../styles/Nav.css'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 function Nav() {

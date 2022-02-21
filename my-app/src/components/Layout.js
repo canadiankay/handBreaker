@@ -1,5 +1,5 @@
 // this is the whole page-- for styling
-import styles from '../styles/layout.css'
+import styles from '../styles/Layout.css'
 
 //use router
 import {BrowserRouter as Router, Route} from 'react-router-dom'
@@ -21,10 +21,10 @@ const Layout = () => {
         path="/" 
         exact 
         render={(props)=> (
-        <>
+          <div>
           <Nav />
           <Header />
-        </>
+        </div>
         )} 
       /> 
 
