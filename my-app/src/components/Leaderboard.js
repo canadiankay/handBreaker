@@ -7,6 +7,9 @@ const Leaderboard = () => {
     <div>
       <h1> This is the leaderboard</h1>
       <Leader />
+
+
+      <h4>Go back <a href="/">HOME</a></h4>
       
     </div>
   )
