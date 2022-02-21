@@ -9,7 +9,7 @@ const Popup1 = (props) => {
     left:'0',
     width:'100%',
     height:'100vh',
-    backgroundColor:'pink',
+    backgroundColor:'palevioletred',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
