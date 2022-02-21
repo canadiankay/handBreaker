@@ -1,7 +1,7 @@
 //this is the home page 
 
 // this is the whole page-- for styling
-import styles from '../styles/Layout.css'
+import styles from '../App.css'
 
 //use router
 import {BrowserRouter as Router, Route} from 'react-router-dom'
@@ -12,6 +12,7 @@ import Header from './Header.js'
 import Footer from './Footer'
 import About from './About.js'
 import Game from '../games/game/index.js'
+import GameList from './GameList'
 
 
 
@@ -21,17 +22,14 @@ const Layout = () => {
     <div>
       <Nav />
       
-      <Route 
-        path="/" 
-        exact 
-        component={Header}
-      /> 
+      <Route path="/" component={Header} />
 
-     
-        <h2>Go to <a href="/game"> THE GAME</a></h2>
-      
+
+      <main>
+        <GameList /> 
+      </main>
+
       <Route path="/game" component={Game}></Route>
-
 
       <Route path="/about" component={About} />
 
