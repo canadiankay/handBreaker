@@ -4,21 +4,40 @@ import Popup from 'reactjs-popup';
 // entry point into the game----- index.js
 import React from 'react'
 import Canvas from './Canvas.js'
-// Breakout
+
+
+import Button from '../../components/Button.js'
 
 
 export default function Game () {
+  const onClick = () => {
+    console.log("clicked")
+
+  }
   return (
     <div>
 
-      <h1>Welcome to handBreaker</h1>
+      <h1> HANDBREAKER </h1>
+      <section>
+        <Button 
+          color='YELLOW' 
+          text='LEADERBOARD' 
+          onClick={onClick} 
+          input="submit" />
+      </section>
 
-      <Popup trigger={<button> Leaderboard </button>} 
-            position="bottom center">
-              <h4>this is a placeholder for the leaderboard</h4>
-      </Popup>
+      <section>
+        <Button 
+          color='ORANGE' 
+          text='YOUR SCORES' 
+          onClick={onClick} 
+          input="submit" />
+      </section>
 
-      <Canvas />
+      <main>
+        <Canvas />
+      </main>
+
 
 
     </div>
