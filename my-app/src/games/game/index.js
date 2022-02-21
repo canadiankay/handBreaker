@@ -64,6 +64,7 @@ export default function Game () {
         {/* this pop up will only appear if true */}
         <Popup1 trigger={true}>
             <h2>my Pop up</h2>
+            <p>Welcome to handBreaker</p>
         </Popup1>
         <Canvas />
       </main>
