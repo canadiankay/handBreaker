@@ -38,7 +38,7 @@ const Popup1 = (props) => {
   return (props.trigger) ? (
     <div style={popupStyles}>
     <div style={innerStyles}>
-      <button style={closeBtn}>close</button>
+      <button style={closeBtn} onClick={() => props.setTrigger(false)}>close</button>
       { props.children }
     </div>
   </div>
