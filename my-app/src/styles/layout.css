@@ -103,3 +103,7 @@
     flex-direction: column;
   }
 }
+
+.header {
+  background-color: black;
+}
