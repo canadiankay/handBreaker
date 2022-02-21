@@ -1,3 +1,5 @@
+//this is the home page 
+
 // this is the whole page-- for styling
 import styles from '../styles/Layout.css'
 
@@ -8,7 +10,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Nav from './Nav.js'
 import Header from './Header.js'
 import Footer from './Footer'
-import About from './About'
+import About from './About.js'
 import Game from '../games/game/index.js'
 
 
@@ -16,25 +18,23 @@ import Game from '../games/game/index.js'
 const Layout = () => {
   return (
     <Router>
-    <div className={styles.container}>
+    <div>
+      <Nav />
+      
       <Route 
         path="/" 
         exact 
-        render={(props)=> (
-          <div>
-          <Nav />
-          <Header />
-        </div>
-        )} 
+        component={Header}
       /> 
 
-      <h2>
-        Go to <a href="/game"> THE GAME</a>
-      </h2>
+     
+        <h2>Go to <a href="/game"> THE GAME</a></h2>
+      
       <Route path="/game" component={Game}></Route>
 
 
       <Route path="/about" component={About} />
+
       <Footer />
       
     </div>
@@ -47,3 +47,11 @@ const Layout = () => {
 }
 
 export default Layout
+
+
+
+
+
+
+
+
