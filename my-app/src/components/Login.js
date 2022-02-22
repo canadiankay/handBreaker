@@ -38,6 +38,7 @@ const Login = ({ auth, toggleLoggedIn, setUserInfo }) => {
 
   return (
     <form>
+      <h4> WELCOME TO THE LOGIN FORM</h4>
       <span className="login-error">{error}</span>
       <div>
         Email:
