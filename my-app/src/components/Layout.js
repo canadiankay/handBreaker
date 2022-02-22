@@ -39,6 +39,8 @@ const Layout = () => {
     <div>
       <Nav isLoggedIn={isLoggedIn} />
 
+      <Header />
+
       <nav>
           <ul>
             <li>
@@ -75,7 +77,7 @@ const Layout = () => {
 
 
 
-       
+       <Footer />
         </div>
 
     </Router>

@@ -12,7 +12,7 @@ import Popup1 from '../../components/Popup1.js'
 
 
 
-export default function Game () {
+export default function Game ({user}) {
 
   //useState(), which will help us to always re-render the page when we add new components
   // set it to false by default
@@ -72,7 +72,7 @@ export default function Game () {
       ></Button>
 
       {/* if load game is true then show canvas component */}
-     { showGame && <Canvas />}
+     { showGame && <Canvas user={user} />}
       </div>
 
       <main classname={mainStyles}>
