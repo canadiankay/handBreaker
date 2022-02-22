@@ -37,57 +37,52 @@ const Layout = () => {
 // Link lets user change the URL on browser
   return (
     <Router>
-    <div>
-      <Nav isLoggedIn={isLoggedIn} />
+      <div>
+        <Nav isLoggedIn={isLoggedIn} />
 
-      <Header />
+        <Header />
 
-      <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            {/* if user is logged in  */}
-            {isLoggedIn &&
-              <li>
-                <Link to="/" onClick={() => window.location.reload(false)}>Logout</Link>
-              </li>
-            }
-            {/* if user is not logged in */}
-            {!isLoggedIn && (
-              <>
-                <li>
-                  <Link to="/register">Register</Link>
-                </li>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-              </>
-            )}
-          </ul>
-        </nav>
+        <Link to="/">Home</Link>
+            
+        {/* if user is logged in  */}
+        {isLoggedIn &&
+          <Link to="/" onClick={() => window.location.reload(false)}>Logout</Link>
+        }
 
-        <Routes>
-          <Route path="register" element={<Register />} />
-          <Route
-            path="login"
-            element={
-              <Login
-                auth={auth}
-                toggleLoggedIn={toggleLoggedIn}
-                setUserInfo={setUserInfo}
-              />
-            }
-          />
-          <Route path="/" element={<Game user={userInfo} />} />
-          
-        </Routes>
+        {/* if user is not logged in */}
+        {!isLoggedIn && (
+          <>
+            <Link to="/register">Register</Link>
+            <Link to="/login">Login</Link>
+          </>)
+        }
 
+        <Link to="/about">About</Link>
 
+       
 
+      <Routes>
+        <Route path="/" element={<Game user={userInfo} />} />
 
-       <Footer />
-        </div>
+        <Route path="register" element={<Register />} />
+        
+        <Route
+          path="login"
+          element={
+            <Login
+              auth={auth}
+              toggleLoggedIn={toggleLoggedIn}
+              setUserInfo={setUserInfo}
+            />}
+        />
+
+        <Route path="/about" element={<About />}></Route>
+
+      </Routes>
+
+      <Footer />
+
+      </div>
 
     </Router>
     
