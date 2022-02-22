@@ -7,7 +7,6 @@ import Canvas from './Canvas.js'
 import Popup from 'reactjs-popup';
 import Button from '../../components/Button.js'
 import Popup1 from '../../components/Popup1.js'
-// import StartButton from './StartButton.js'
 
 
 
@@ -17,6 +16,13 @@ export default function Game () {
   //useState(), which will help us to always re-render the page when we add new components
   // set it to false by default
   const [showGame, setShowGame]= useState(false);
+
+  function loadGame() {
+
+    setShowGame(!showGame)
+    //will count how many times game was loaded
+    console.log("Game has been loaded")
+  }
 
 
   // this will set that variable for the pop up to true 
@@ -35,13 +41,10 @@ useEffect(() => {
   const goToLeaderboard = () => history.push('/leaderboard');//eg.history.push('/login');
 
   // this is for line 61
-  const onClick1 = () => {
+  const onClick = () => {
     console.log("clicked scores")
   }
 
-  const onClick = () => {
-    console.log("clicked game")
-  }
 
   const mainStyles ={
     padding:"32px",
@@ -70,7 +73,7 @@ useEffect(() => {
           <Button 
             color='ORANGE' 
             text='YOUR SCORES' 
-            onClick={onClick1} 
+            onClick={onClick} 
             input="submit" 
           />}
           position="middle"
@@ -86,7 +89,7 @@ useEffect(() => {
         <button onClick={()=> setGamePopup(true) }>START</button>
         {/* this pop up will only appear if true */}
         <Popup1 trigger={gamePopup} setTrigger={setGamePopup}>
-            <h2>my Pop up</h2>
+            <h2></h2>
             <p>Welcome to handBreaker</p>
         </Popup1>
 
@@ -102,7 +105,7 @@ useEffect(() => {
       <Button
         color='ORANGE' 
         text='START GAME' 
-        onClick={() => setShowGame(!showGame)} 
+        onClick={loadGame} 
         input="submit" 
       ></Button>
 
