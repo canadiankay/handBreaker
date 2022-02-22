@@ -1,9 +1,12 @@
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import logo from "../imgs/DMN-Games-Logo.png"
+import { Link} from 'react-router-dom'
+import {useState} from 'react'
 
 
 function Nav() {
+  const [isLoggedIn, toggleLoggedIn] = useState(false);
 
   const navStyles={
     background:"orange",
@@ -20,28 +23,24 @@ function Nav() {
       {/* insert logo */}
       <img src={logo} alt="" width="90px" height="90px" border-radius="50%" />
 
-  
-      <a href="/">HOME</a>
 
-      <a href="/about">ABOUT US</a>
+      <Link to="/">HOME</Link>
+            
+      <Link to="/about">ABOUT</Link>
 
+      {/* if user is logged in  */}
+      {isLoggedIn &&
+        <Link to="/game" onClick={() => window.location.reload(false)}>LOGOUT</Link>
+      }
 
-      <Popup  
-        trigger={<button text='Register'>REGISTER</button>} 
-        position="bottom center">
-          <h4>Username:<input placeholder='Username'></input></h4>
-          <h4>Email:<input placeholder='example@gmail.com'></input></h4>
-          <h4>Password:<input placeholder='Password'></input></h4>
-          <h4>Confirm Password:<input placeholder='Confirm password'></input></h4>
-          <input type="Submit" value="Submit"></input>
-      </Popup>
+      {/* if user is not logged in */}
+      {!isLoggedIn && (
+        <>
+          <Link to="/register">REGISTER</Link>
+          <Link to="/login">LOGIN</Link>
+        </>)
+      }
 
-      <Popup trigger={<button text='Login'>LOGIN</button>} 
-        position="bottom center">
-          <h4>Username:<input placeholder='Username'></input></h4>
-          <h4>Password:<input placeholder='Password'></input></h4>
-          <input type="Submit" value="Submit"></input>
-      </Popup>
 
     </nav>
   )

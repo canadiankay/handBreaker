@@ -40,27 +40,6 @@ const Layout = () => {
       <div>
         <Nav isLoggedIn={isLoggedIn} />
 
-        
-
-        <Link to="/">Home</Link>
-            
-        {/* if user is logged in  */}
-        {isLoggedIn &&
-          <Link to="/" onClick={() => window.location.reload(false)}>Logout</Link>
-        }
-
-        {/* if user is not logged in */}
-        {!isLoggedIn && (
-          <>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
-          </>)
-        }
-
-        <Link to="/about">About</Link>
-
-       
-
       <Routes>
         <Route 
           path="/" 
