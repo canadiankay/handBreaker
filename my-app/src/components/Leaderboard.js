@@ -15,8 +15,8 @@ const Leaderboard = () => {
 
       <Leader />
 
-
-      <h4>Go back <a href="/">HOME</a></h4>
+      <h4>Go back to <a href="/game">GAME</a></h4>
+      <h4>Go back to <a href="/">HOME</a></h4>
       
     </div>
   )
