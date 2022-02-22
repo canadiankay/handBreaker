@@ -5,8 +5,7 @@ import { Link} from 'react-router-dom'
 import {useState} from 'react'
 
 
-function Nav() {
-  const [isLoggedIn, toggleLoggedIn] = useState(false);
+function Nav({isLoggedIn}) {
 
   const navStyles={
     background:"orange",
