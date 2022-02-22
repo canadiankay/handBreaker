@@ -62,7 +62,8 @@ const Layout = () => {
        
 
       <Routes>
-        <Route path="/" element={<Game user={userInfo} />} />
+        <Route path="/" element={<GameList/>} />
+        <Route path="/game" element={<Game user={userInfo} />} />
 
         <Route path="register" element={<Register />} />
         
