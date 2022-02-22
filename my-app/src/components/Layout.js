@@ -5,13 +5,13 @@ import { useState } from "react";
 
 //firebase stuff 
 import { getAuth } from "firebase/auth";
-import firebaseApp from "../firebase";
+import { firebaseApp } from "../firebase";
 
 // this is the whole page-- for styling
 import '../../src/App.css';
 
 //use router
-import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 // import nav bar and header
 import Nav from './Nav.js'
@@ -27,21 +27,21 @@ import Login from "./Login.js";
 
 const Layout = () => {
 
-    // initialize firebase auth module
-    const auth = getAuth(firebaseApp);
+  // initialize firebase auth module
+  const auth = getAuth(firebaseApp);
 
-    const [isLoggedIn, toggleLoggedIn] = useState(false);
-    const [userInfo, setUserInfo] = useState(null);
+  const [isLoggedIn, toggleLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
 
 
   return (
     <Router>
-    <div>
-      <Nav isLoggedIn={isLoggedIn} />
+      <div>
+        <Nav isLoggedIn={isLoggedIn} />
 
-      <Header />
+        <Header />
 
-      <nav>
+        <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -79,20 +79,20 @@ const Layout = () => {
             }
           />
           <Route path="/" element={<Game user={userInfo} />} />
-          
+
         </Routes>
 
 
 
 
-       <Footer />
-        </div>
+        <Footer />
+      </div>
 
     </Router>
-    
-    
-      
-    
+
+
+
+
   )
 }
 
