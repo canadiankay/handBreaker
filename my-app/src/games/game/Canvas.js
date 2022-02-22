@@ -11,21 +11,134 @@ import PaddleCollision from './helpers/PaddleCollision';
 import Player from './Player';
 import BrokenBricks from './helpers/BrokenBricks';
 import ResetBall from './helpers/ResetBall'
+import * as handTrack from 'handtrackjs';
 
-let { ball, paddle, brick, player } = data;
-
+// let webcamHeight = 0;
+// let webcamWidth = 0;
+// let { ball, paddle, brick, player } = data;
+// let webcamMiddleY = webcamHeight / 2;
+// let webcamTopY = webcamHeight / 2;
 // will have a state of bricks 
 let bricks = [];
+const canvas = document.querySelector("canvas")
+const ctx = canvas.getContext("2d");
+const video = document.getElementById("myvideo");
+const handimg = document.getElementById("handimage");
+let trackButton = document.getElementById("trackbutton");
+let updateNote = document.getElementById("updatenote");
+let videoInterval = 100
+// let playerDetection = 1;
+console.log(canvas.height, canvas.width);
+
+// Right player paddle
 
 export default function Canvas() {
   const canvasRef = useRef(null) //initiate canvas as null first (from react) then we will utlizie it
+ 
 
-//it's a component deadmount
+  //it's a component deadmount
+  let isVideo = false;
+  let model = null;
+  // const predictions = await model.detect(img)
+  // console.log(predictions)
+  const modelParams = {
+  flipHorizontal: true, // flip e.g for video
+    maxNumBoxes: 1, // maximum number of boxes to detect
+    iouThreshold: 0.5, // ioU threshold for non-max suppression
+    scoreThreshold: 0.6, // confidence threshold for predictions.
+  };
+  
+  
+  
+  function startVideo() {
+    handTrack.startVideo(video).then(function (status) {
+      console.log("video started", status);
+      if (status) {
+        updateNote.innerText = "Video started. Now tracking";
+        isVideo = true;
+        runDetection();
+      } else {
+        updateNote.innerText = "Please enable video";
+      }
+    });
+  }
+  
+  function toggleVideo() {
+    if (!isVideo) {
+      updateNote.innerText = "Starting video";
+      startVideo();
+    } else {
+      updateNote.innerText = "Stopping video";
+      handTrack.stopVideo(video);
+      isVideo = false;
+      updateNote.innerText = "Video stopped";
+    }
+  }
+  
+  
+  
+  trackButton.addEventListener("click", function () {
+    toggleVideo();
+  });
+  
+  
+
+  
+  
+  function runDetection() {
+   model.detect(video)
+        .then(predictions => {
+            model.renderPredictions(predictions, canvas, ctx, video);
+            if (predictions[0]) {
+              let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2)
+              let gamex = document.body.clientWidth * (midval / video.width)
+              updatePaddleControl(gamex)
+              console.log('Predictions: ', gamex);
+  
+            }
+            if (isVideo) {
+            setTimeout(() => {
+              runDetection(video)
+              }, videoInterval);
+            }
+        });
+  }
+  
+  function runDetectionImage(img) {
+    model.detect(img).then((predictions) => {
+      console.log("Predictions: ", predictions);
+      model.renderPredictions(predictions, canvas, ctx, img);
+    });
+  }
+  
+  // Load the model.
+  handTrack.load(modelParams).then((lmodel) => {
+    // detect objects in the image.
+    model = lmodel;
+    console.log(model);
+    updateNote.innerText = "Loaded Model!";
+    runDetectionImage(handimg);
+    trackButton.disabled = false;
+  }); 
+  // function updatePaddleControl(x) {
+  //   // gamex = x;
+  //   let lineaVeloctiy = (paddle.getPosition().x)
+
+  //   // paddle.setLinearVelocity(lineaVeloctiy)
+  //   // paddle.setLinearVelocity(lineaVeloctiy)
+  //   lineaVeloctiy.x = isNaN(lineaVeloctiy.x) ? 0 : lineaVeloctiy.x
+  //   paddle.setLinearVelocity(lineaVeloctiy)
+  //   console.log("linear velocity", lineaVeloctiy.x, lineaVeloctiy.y)
+  // }
+
   useEffect(() => {
     const loop = () => { 
-      //We can access the canvas element through the canvasRef now. Now we just need to get the context and start drawing
       const canvas = canvasRef.current //current is a property inside the useRef
       const ctx = canvas.getContext('2d') 
+      paddle.y = canvas.height - 30;
+      //We can access the canvas element through the canvasRef now. Now we just need to get the context and start drawing
+      // const canvas = canvasRef.current //current is a property inside the useRef
+      // const ctx = canvas.getContext('2d') 
       
       // need to provide y value for paddle-ball Collision since we dont have a y value in data.js
       paddle.y = canvas.height - 30;
@@ -72,7 +185,6 @@ export default function Canvas() {
       bricks.map((brick) => {
         return brick.draw(ctx);
       })
-
       ////////////////////// HANDLE BALL - BRICK COLLISION////////////////////
       // handle brick collision 
       let collision;
@@ -135,7 +247,16 @@ export default function Canvas() {
       {/* This is our game board/Canvas */}
 
       {/* //return canvas-- styling is in app.css */}
-      <canvas 
+      <img id="img" src="" alt="" />
+      <div className="video-container">
+        <video
+          className="videobox"
+          autoPlay={true}
+          id="myvideo"
+          width="1024"
+          height="768"
+        />
+        <canvas 
         id="myCanvas" 
         ref= {canvasRef} 
         height="600" 
@@ -148,7 +269,8 @@ export default function Canvas() {
           // console.log(paddle.x)
         }} // this works with setting width to 1000
         
-        /> 
+        />
+      </div> 
         
   </div>
 
