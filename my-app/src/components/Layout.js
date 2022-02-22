@@ -40,7 +40,7 @@ const Layout = () => {
       <div>
         <Nav isLoggedIn={isLoggedIn} />
 
-        <Header />
+        
 
         <Link to="/">Home</Link>
             
@@ -62,7 +62,16 @@ const Layout = () => {
        
 
       <Routes>
-        <Route path="/" element={<GameList/>} />
+        <Route 
+          path="/" 
+          element={
+            <>
+              <Header />
+              <GameList/>
+            </>
+          } 
+        />
+        
         <Route path="/game" element={<Game user={userInfo} />} />
 
         <Route path="register" element={<Register />} />
@@ -76,8 +85,10 @@ const Layout = () => {
               setUserInfo={setUserInfo}
             />}
         />
-        <Route path="/leaderboard" element={<Leaderboard />}></Route>
-        <Route path="/about" element={<About />}></Route>
+
+        <Route path="/leaderboard" element={<Leaderboard />} />
+
+        <Route path="/about" element={<About />} />
 
       </Routes>
 
