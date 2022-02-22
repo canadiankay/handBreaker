@@ -17,8 +17,15 @@ let { ball, paddle, brick, player } = data;
 // will have a state of bricks 
 let bricks = [];
 
-export default function Canvas() {
+export default function Canvas({ user }) {
   const canvasRef = useRef(null) //initiate canvas as null first (from react) then we will utlizie it
+
+  //user login info
+  // overrwite user name if we have a user connect
+  if (user) {
+    player.name = user.email;
+  }
+  
 
 //it's a component deadmount
   useEffect(() => {
@@ -71,7 +78,7 @@ export default function Canvas() {
       //display bricks
       bricks.map((brick) => {
         return brick.draw(ctx);
-      })
+      });
 
       ////////////////////// HANDLE BALL - BRICK COLLISION////////////////////
       // handle brick collision 
@@ -82,7 +89,8 @@ export default function Canvas() {
         // if a collision has happened
         collision = BrickCollision(ball, bricks[i]); //bricks[i] refers to the individual brick that was hit
 
-        if (collision.hit && !bricks[i].broke) { //if brick hit or not broken (see Brick Collision logic)
+        if (collision.hit && !bricks[i].broke) { 
+          //if brick hit or not broken (see Brick Collision logic)
           // console.log(collision);
           if (collision.axis === "X") {
             ball.dx *= -1; //if collision happened  divert the brick x-axis direction
@@ -123,15 +131,11 @@ export default function Canvas() {
     };
 
 
- 
     // game will begin in 3 seconds
     setTimeout(() => {
       loop();
     }, 3000)
    
-
-  
-
   }, [])
     //^ this empty bracket allows it to load initially 
 
@@ -140,12 +144,11 @@ export default function Canvas() {
     <div> 
       <div className="canvas">
         {/* this is our gameboard */}
-        {/* This is our game board/Canvas */}
 
         {/* //return canvas-- styling is in app.css */}
         <canvas 
           id="myCanvas" 
-          ref= {canvasRef} 
+          ref={canvasRef} 
           height="600" 
           width="1000"
           // width={ window.innerWidth - 25 }

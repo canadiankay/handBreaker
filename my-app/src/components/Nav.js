@@ -18,7 +18,7 @@ function Nav() {
   return (
     <nav style={navStyles}>
       {/* insert logo */}
-      <img src={logo} width="90px" height="90px" border-radius="50%" />
+      <img src={logo} alt="" width="90px" height="90px" border-radius="50%" />
 
   
       <a href="/">HOME</a>
@@ -48,17 +48,3 @@ function Nav() {
 }
 
 export default Nav;
-
-{/* <nav>
-<ul>
-  <li>
-    <Link to="/">Home</Link>
-  </li>
-  <li>
-    <Link to="/register">Register</Link>
-  </li>
-  <li>
-    <Link to="/login">Login</Link>
-  </li>
-</ul>
-</nav> */}

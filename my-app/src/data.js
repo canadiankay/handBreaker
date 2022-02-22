@@ -1,11 +1,11 @@
-
 //this will handle ball object + its position 
 
 // let canvas_height = 600;
 // let canvas_width = 1000;
 
+// eslint-disable-next-line
 export default {
-  paddle: {
+  paddle: {  
     width: 100,
     height:20,
     // x: canvas.width / 2 - 50,
