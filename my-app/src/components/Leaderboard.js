@@ -1,7 +1,7 @@
 // here we will have a bunch of boxes with different leaders from 'leader'
 
 import { collection, getDocs } from "firebase/firestore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Leader from "./Leader.js"
 import { db } from "../firebase"
 
@@ -11,16 +11,31 @@ import { db } from "../firebase"
 
 const Leaderboard = () => {
 
+  const [scores, setScores] = useState([])
+
+
+
   useEffect(() => {
-    // const querySnapshot = await getDocs(collection(db, "leaderboard"));
-    // querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data()}`);
+    const querySnapshot = getDocs(collection(db, "leaderboard")).then(
+      (data) => {
+        console.log("DATA!!!!!!", data)
+        const list = [...scores];
+        data.forEach((doc) => {
+          console.log(`${doc.id} => ${doc.data()}`, doc.data());
+          console.log("SCORES#####", scores)
+          list.push(doc.data())
+        });
+        setScores(list)
+
+      }
+    );
+
+
+    // db.collection("leaderboard").get().then((querySnapshot) => {
+    //   querySnapshot.forEach((doc) => {
+    //     console.log(`${doc.id} => ${doc.data()}`);
+    //   });
     // });
-    db.collection("leaderboard").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-      });
-    });
   }, [])
 
 
@@ -28,13 +43,22 @@ const Leaderboard = () => {
     <div>
       <h1> This is the leaderboard</h1>
       <table>
-        {/* here goes the leaderboard */}
+        <tr>
+          <th>User</th>
+          <th>Score</th>
+        </tr>
+        {scores.map((score) => (
+          <tr>
+            <td>{score.user}</td>
+            <td>{score.score}</td>
+          </tr>
+        ))}
       </table>
 
       <Leader />
 
-
-      <h4>Go back <a href="/">HOME</a></h4>
+      <h4>Go back to <a href="/game">GAME</a></h4>
+      <h4>Go back to <a href="/">HOME</a></h4>
 
     </div>
   )

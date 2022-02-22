@@ -22,6 +22,7 @@ import Game from '../games/game/index.js'
 import GameList from './GameList'
 import Leaderboard from './Leaderboard.js'
 import Login from "./Login.js";
+import Register from "./Register.js";
 
 
 
@@ -33,7 +34,7 @@ const Layout = () => {
   const [isLoggedIn, toggleLoggedIn] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
 
-
+  // Link lets user change the URL on browser
   return (
     <Router>
       <div>
@@ -41,33 +42,31 @@ const Layout = () => {
 
         <Header />
 
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            {/* if user is logged in  */}
-            {isLoggedIn &&
-              <li>
-                <Link to="/" onClick={() => window.location.reload(false)}>Logout</Link>
-              </li>
-            }
-            {/* if user is not logged in */}
-            {!isLoggedIn && (
-              <>
-                <li>
-                  <Link to="/register">Register</Link>
-                </li>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-              </>
-            )}
-          </ul>
-        </nav>
+        <Link to="/">Home</Link>
+
+        {/* if user is logged in  */}
+        {isLoggedIn &&
+          <Link to="/" onClick={() => window.location.reload(false)}>Logout</Link>
+        }
+
+        {/* if user is not logged in */}
+        {!isLoggedIn && (
+          <>
+            <Link to="/register">Register</Link>
+            <Link to="/login">Login</Link>
+          </>)
+        }
+
+        <Link to="/about">About</Link>
+
+
 
         <Routes>
-          <Route path="register" element={<h1>Register</h1>} />
+          <Route path="/" element={<GameList />} />
+          <Route path="/game" element={<Game user={userInfo} />} />
+
+          <Route path="register" element={<Register />} />
+
           <Route
             path="login"
             element={
@@ -75,17 +74,15 @@ const Layout = () => {
                 auth={auth}
                 toggleLoggedIn={toggleLoggedIn}
                 setUserInfo={setUserInfo}
-              />
-            }
+              />}
           />
-          <Route path="/" element={<Game user={userInfo} />} />
+          <Route path="/leaderboard" element={<Leaderboard />}></Route>
+          <Route path="/about" element={<About />}></Route>
 
         </Routes>
 
-
-
-
         <Footer />
+
       </div>
 
     </Router>
