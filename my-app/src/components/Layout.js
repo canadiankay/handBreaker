@@ -22,6 +22,7 @@ import Game from '../games/game/index.js'
 import GameList from './GameList'
 import Leaderboard from './Leaderboard.js'
 import Login from "./Login.js";
+import Register from "./Register.js";
 
 
 
@@ -33,7 +34,7 @@ const Layout = () => {
     const [isLoggedIn, toggleLoggedIn] = useState(false);
     const [userInfo, setUserInfo] = useState(null);
 
-
+// Link lets user change the URL on browser
   return (
     <Router>
     <div>
@@ -67,7 +68,7 @@ const Layout = () => {
         </nav>
 
         <Routes>
-          <Route path="register" element={<h1>Register</h1>} />
+          <Route path="register" element={<Register />} />
           <Route
             path="login"
             element={
