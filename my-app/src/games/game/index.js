@@ -1,8 +1,9 @@
 
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 //the main game component-- handbreaker
 // entry point into the game----- index.js
-import {useState, useEffect}  from 'react'
+// import {useState, useEffect}  from 'react'
+import {useState}  from 'react'
 import Canvas from './Canvas.js'
 import Popup from 'reactjs-popup';
 import Button from '../../components/Button.js'
@@ -27,17 +28,16 @@ export default function Game () {
 
   // this will set that variable for the pop up to true 
   const [gamePopup, setGamePopup] = useState(false);
-  const [timedPopup, setTimedPopup] = useState();
+  // const [timedPopup, setTimedPopup] = useState();
   // this makes second pop up trigger after 3 seconds
   // useEffect allows it to only be called once instead of every second
-useEffect(() => {
-  setTimeout(() => {
-    setTimedPopup(true);
-  }, 3000)
+// useEffect(() => {
+//   setTimeout(() => {
+//     setTimedPopup(true);
+//   }, 3000)
+// }, []);
 
-}, []);
-
-  const history = useHistory();
+  const history = useNavigate();
   const goToLeaderboard = () => history.push('/leaderboard');//eg.history.push('/login');
 
   // this is for line 61
