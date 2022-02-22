@@ -76,7 +76,7 @@ const Layout = () => {
               setUserInfo={setUserInfo}
             />}
         />
-
+        <Route path="/leaderboard" element={<Leaderboard />}></Route>
         <Route path="/about" element={<About />}></Route>
 
       </Routes>
