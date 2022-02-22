@@ -57,9 +57,39 @@ useEffect(() => {
 
 
   return (
-    <div>
+    <div style={{display:"flex",justifyContent:"center", alignItems: "center", flexDirection: "column"}}>
 
       <h1> HANDBREAKER</h1>
+
+      <div>
+      <h2>Ready to Play?</h2>
+        {/* this button will load the game when pressed */}
+      <Button
+        color='ORANGE' 
+        text='START GAME' 
+        onClick={loadGame} 
+        input="submit" 
+      ></Button>
+
+      {/* if load game is true then show canvas component */}
+     { showGame && <Canvas />}
+      </div>
+
+      <main classname={mainStyles}>
+        <button onClick={()=> setGamePopup(true) }>How to Play HERE</button>
+        {/* this pop up will only appear if true */}
+        <Popup1 trigger={gamePopup} setTrigger={setGamePopup}>
+            <h2>Welcome to HandBreaker</h2>
+            <p>This game is done using handtracking technology. You will be able to control the paddle with your hand!</p>
+        </Popup1>
+
+          {/* this is our timed popup */}
+        {/* <Popup1 trigger={timedPopup} setTrigger={setTimedPopup}>
+            <h2>my Timed Pop up</h2>
+            <p>My time triggered pop up</p>
+        </Popup1> */}
+      </main>
+
       <section>
         <Button 
           color='YELLOW' 
@@ -83,35 +113,6 @@ useEffect(() => {
 
         </Popup>
       </section>
-  
-      <main classname={mainStyles}>
-        <h2>Ready to Play?</h2>
-        <button onClick={()=> setGamePopup(true) }>START</button>
-        {/* this pop up will only appear if true */}
-        <Popup1 trigger={gamePopup} setTrigger={setGamePopup}>
-            <h2></h2>
-            <p>Welcome to handBreaker</p>
-        </Popup1>
-
-          {/* this is our timed popup */}
-        {/* <Popup1 trigger={timedPopup} setTrigger={setTimedPopup}>
-            <h2>my Timed Pop up</h2>
-            <p>My time triggered pop up</p>
-        </Popup1> */}
-      </main>
-      <div>
-
-        {/* this button will load the game when pressed */}
-      <Button
-        color='ORANGE' 
-        text='START GAME' 
-        onClick={loadGame} 
-        input="submit" 
-      ></Button>
-
-      {/* if load game is true then show canvas component */}
-     { showGame && <Canvas />}
-      </div>
 
         
 
