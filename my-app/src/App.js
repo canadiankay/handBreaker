@@ -5,7 +5,7 @@ import Game from "./games/game/index.js";
 import Nav from "./games/game/Nav.js";
 import "./App.css";
 import Login from "./screens/Login";
-import firebaseApp from "./firebase";
+import { firebaseApp } from "./firebase";
 import { useState } from "react";
 
 function App() {

@@ -2,14 +2,24 @@
   imports from firebase(dependencies)
 */
 
-import firebaseApp from "../../../firebase";
+import { db } from "../../../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
-export default function submitLeaderboard({ name, score }) {
+export default async function submitLeaderboard({ name, score }) {
   const username = name;
   console.log(`The usser ${username} has a score of : ${score}`);
   // assuming we have a leaderboard table
   // just insert new entry with the following info:
   // username, score
+  try {
+    const docRef = await addDoc(collection(db, "leaderboard"), {
+      score: score,
+      user: username
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
 
 
   // something like this
