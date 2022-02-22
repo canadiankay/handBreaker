@@ -36,7 +36,7 @@ export default {
     colors: ["blue", "orange"] //the second item changes the color of the bricks and everything-- find out why!
   },
   player: {
-    name: "LABBER",
+    name: "GUEST",
     lives: 3,
     score: 0,
     level: 1
