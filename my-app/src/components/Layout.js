@@ -46,6 +46,13 @@ const Layout = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
+            {/* if user is logged in  */}
+            {isLoggedIn &&
+              <li>
+                <Link to="/" onClick={() => window.location.reload(false)}>Logout</Link>
+              </li>
+            }
+            {/* if user is not logged in */}
             {!isLoggedIn && (
               <>
                 <li>
@@ -72,6 +79,7 @@ const Layout = () => {
             }
           />
           <Route path="/" element={<Game user={userInfo} />} />
+          
         </Routes>
 
 
