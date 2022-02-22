@@ -1,24 +1,20 @@
 //board.js-- main board
 
-import React, { useRef, useEffect } from 'react'
-import { BallMovement } from './BallMovement';
-import data from '../../data'
-import WallCollision from './helpers/WallCollision';
-import {PaddleMovement} from './PaddleMovement';
-import CreateBrick from './Brick';
-import BrickCollision from './helpers/BrickCollision';
-import PaddleCollision from './helpers/PaddleCollision';
-import Player from './Player';
-import BrokenBricks from './helpers/BrokenBricks';
-import ResetBall from './helpers/ResetBall'
-import * as handTrack from 'handtrackjs';
+import React, { useRef, useEffect } from "react";
+import { BallMovement } from "./BallMovement";
+import data from "../../data";
+import WallCollision from "./helpers/WallCollision";
+import { PaddleMovement } from "./PaddleMovement";
+import CreateBrick from "./Brick";
+import BrickCollision from "./helpers/BrickCollision";
+import PaddleCollision from "./helpers/PaddleCollision";
+import Player from "./Player";
+import BrokenBricks from "./helpers/BrokenBricks";
+import ResetBall from "./helpers/ResetBall";
 
-// let webcamHeight = 0;
-// let webcamWidth = 0;
-// let { ball, paddle, brick, player } = data;
-// let webcamMiddleY = webcamHeight / 2;
-// let webcamTopY = webcamHeight / 2;
-// will have a state of bricks 
+let { ball, paddle, brick, player } = data;
+
+// will have a state of bricks
 let bricks = [];
 const canvas = document.querySelector("canvas")
 const ctx = canvas.getContext("2d");
@@ -32,129 +28,36 @@ console.log(canvas.height, canvas.width);
 
 // Right player paddle
 
-export default function Canvas() {
-  const canvasRef = useRef(null) //initiate canvas as null first (from react) then we will utlizie it
- 
+export default function Canvas({ user }) {
+  const canvasRef = useRef(null); //initiate canvas as null first (from react) then we will utlizie it
+
+  // overrwite user name if we have a user connect
+  if (user) {
+    player.name = user.email;
+  }
 
   //it's a component deadmount
-  let isVideo = false;
-  let model = null;
-  // const predictions = await model.detect(img)
-  // console.log(predictions)
-  const modelParams = {
-  flipHorizontal: true, // flip e.g for video
-    maxNumBoxes: 1, // maximum number of boxes to detect
-    iouThreshold: 0.5, // ioU threshold for non-max suppression
-    scoreThreshold: 0.6, // confidence threshold for predictions.
-  };
-  
-  
-  
-  function startVideo() {
-    handTrack.startVideo(video).then(function (status) {
-      console.log("video started", status);
-      if (status) {
-        updateNote.innerText = "Video started. Now tracking";
-        isVideo = true;
-        runDetection();
-      } else {
-        updateNote.innerText = "Please enable video";
-      }
-    });
-  }
-  
-  function toggleVideo() {
-    if (!isVideo) {
-      updateNote.innerText = "Starting video";
-      startVideo();
-    } else {
-      updateNote.innerText = "Stopping video";
-      handTrack.stopVideo(video);
-      isVideo = false;
-      updateNote.innerText = "Video stopped";
-    }
-  }
-  
-  
-  
-  trackButton.addEventListener("click", function () {
-    toggleVideo();
-  });
-  
-  
-
-  
-  
-  function runDetection() {
-   model.detect(video)
-        .then(predictions => {
-            model.renderPredictions(predictions, canvas, ctx, video);
-            if (predictions[0]) {
-              let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2)
-              let gamex = document.body.clientWidth * (midval / video.width)
-              updatePaddleControl(gamex)
-              console.log('Predictions: ', gamex);
-  
-            }
-            if (isVideo) {
-            setTimeout(() => {
-              runDetection(video)
-              }, videoInterval);
-            }
-        });
-  }
-  
-  function runDetectionImage(img) {
-    model.detect(img).then((predictions) => {
-      console.log("Predictions: ", predictions);
-      model.renderPredictions(predictions, canvas, ctx, img);
-    });
-  }
-  
-  // Load the model.
-  handTrack.load(modelParams).then((lmodel) => {
-    // detect objects in the image.
-    model = lmodel;
-    console.log(model);
-    updateNote.innerText = "Loaded Model!";
-    runDetectionImage(handimg);
-    trackButton.disabled = false;
-  }); 
-  // function updatePaddleControl(x) {
-  //   // gamex = x;
-  //   let lineaVeloctiy = (paddle.getPosition().x)
-
-  //   // paddle.setLinearVelocity(lineaVeloctiy)
-  //   // paddle.setLinearVelocity(lineaVeloctiy)
-  //   lineaVeloctiy.x = isNaN(lineaVeloctiy.x) ? 0 : lineaVeloctiy.x
-  //   paddle.setLinearVelocity(lineaVeloctiy)
-  //   console.log("linear velocity", lineaVeloctiy.x, lineaVeloctiy.y)
-  // }
-
   useEffect(() => {
-    const loop = () => { 
-      const canvas = canvasRef.current //current is a property inside the useRef
-      const ctx = canvas.getContext('2d') 
-      paddle.y = canvas.height - 30;
+    const loop = () => {
       //We can access the canvas element through the canvasRef now. Now we just need to get the context and start drawing
-      // const canvas = canvasRef.current //current is a property inside the useRef
-      // const ctx = canvas.getContext('2d') 
-      
+      const canvas = canvasRef.current; //current is a property inside the useRef
+      const ctx = canvas.getContext("2d");
+
       // need to provide y value for paddle-ball Collision since we dont have a y value in data.js
       paddle.y = canvas.height - 30;
-      
+
       /////////////// BRICK CREATION ///////////////////////////
       // before clearing canvas we will assign (a) brick(s)
-      // we will initiate it with 2 rows ------- can change it to however many rows we want 
+      // we will initiate it with 2 rows ------- can change it to however many rows we want
       // CreateBrick(brick, canvas, 2, bricks); // returns an array of objects
       // ^this calls brick infinite amount of times
-      let allBricks = CreateBrick(player.level,bricks, canvas, brick); 
-      // need to handle if all the bricks are undefined or empty 
+      let allBricks = CreateBrick(player.level, bricks, canvas, brick);
+      // need to handle if all the bricks are undefined or empty
       if (allBricks && allBricks.length > 0) {
         bricks = allBricks; // if they are then we assign it to bricks(empty array)
       }
-      
-      ctx.clearRect(0, 0, canvas.width, canvas.height) // clears each new render of the circle so doesnt leave a trail
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height); // clears each new render of the circle so doesnt leave a trail
 
       //////////// DISPLAY PLAYER ////////////////
       // Player logic --- displays their name, lives and score
@@ -162,7 +65,7 @@ export default function Canvas() {
 
       // restart/reset game if the player has no lives
       if (player.lives === 0) {
-        alert ("GAME OVER! Press OK to restart")
+        alert("GAME OVER! Press OK to restart");
         //reset level to 1 after reset
         player.level = 1;
         player.lives = 3; //lives reset
@@ -172,21 +75,18 @@ export default function Canvas() {
         bricks.length = 0;
 
         // position ball to start from paddle after lives lost
-        ResetBall(ball,canvas ,paddle );
-
-
+        ResetBall(ball, canvas, paddle);
       }
 
-      
-  
       //////////////////// DISPLAY BRICKS////////////////////////////
       // as soon as we have bricks, we want to draw/display each individual brick on the canvas
       //display bricks
       bricks.map((brick) => {
         return brick.draw(ctx);
-      })
+      });
+
       ////////////////////// HANDLE BALL - BRICK COLLISION////////////////////
-      // handle brick collision 
+      // handle brick collision
       let collision;
 
       //needs to go through each and every single brick
@@ -194,12 +94,12 @@ export default function Canvas() {
         // if a collision has happened
         collision = BrickCollision(ball, bricks[i]); //bricks[i] refers to the individual brick that was hit
 
-        if (collision.hit && !bricks[i].broke) { //if brick hit or not broken (see Brick Collision logic)
+        if (collision.hit && !bricks[i].broke) {
+          //if brick hit or not broken (see Brick Collision logic)
           // console.log(collision);
           if (collision.axis === "X") {
             ball.dx *= -1; //if collision happened  divert the brick x-axis direction
             bricks[i].broke = true; // and change its brocken value to be true (dont wanna see it)
-          
           } else if (collision.axis === "Y") {
             ball.dy *= -1;
             bricks[i].broke = true;
@@ -208,73 +108,49 @@ export default function Canvas() {
           player.score += 2;
         }
       }
-      /////////////////// CHECK IF BRICKS ARE BROKEN////////////////     
+      /////////////////// CHECK IF BRICKS ARE BROKEN////////////////
       BrokenBricks(bricks, player, canvas, ball);
-      
+
       // /////////////////////////////////DRAW + MOVE PADDLE////////////////
       // Paddle(ctx, canvas, paddle);
       PaddleMovement(ctx, canvas, paddle);
-      
+
       ////////////// DRAW + MOVE BALL //////////////////////////////////
       BallMovement(ctx, ball);
-      
+
       ///////////Prevent Ball from hitting walls //////////////////////////////////
       WallCollision(canvas, ball, player, paddle);
 
-
       /////////////// Allow ball to bounce off paddle//////////////
       //handles ball-paddle collision
-      PaddleCollision(ball, paddle)
+      PaddleCollision(ball, paddle);
       // console.log("paddle", paddle, "ball:", ball);
 
-
-      
-      
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
-  
     };
     loop();
-
-  
-
-  }, [])
-    //^ this empty bracket allows it to load initially 
+  }, []);
+  //^ this empty bracket allows it to load initially
 
   return (
-    
     <div className="canvas">
       {/* this is our gameboard */}
       {/* This is our game board/Canvas */}
 
       {/* //return canvas-- styling is in app.css */}
-      <img id="img" src="" alt="" />
-      <div className="video-container">
-        <video
-          className="videobox"
-          autoPlay={true}
-          id="myvideo"
-          width="1024"
-          height="768"
-        />
-        <canvas 
-        id="myCanvas" 
-        ref= {canvasRef} 
-        height="600" 
+      <canvas
+        id="myCanvas"
+        ref={canvasRef}
+        height="600"
         width="1000"
         // width={ window.innerWidth - 25 }
         //allows paddle to move via mouse
         //onMouseMove={(event) => {paddle.x = event.clientX - paddle.width / 2; console.log(paddle.x)}} // this works with width being inner width
         onMouseMove={(event) => {
-          paddle.x = event.clientX - 500; 
+          paddle.x = event.clientX - 500;
           // console.log(paddle.x)
         }} // this works with setting width to 1000
-        
-        />
-      </div> 
-        
-  </div>
-
-
-  )
+      />
+    </div>
+  );
 }
-
