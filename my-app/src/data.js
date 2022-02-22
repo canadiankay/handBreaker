@@ -7,7 +7,7 @@
 export default {
   paddle: {
     width: 100,
-    height:20,
+    height: 20,
     // x: canvas.width / 2 - 50,
     // x: 450,
     x: 100,
@@ -16,7 +16,7 @@ export default {
     // dx: 5, //this is amount of pixels paddle will move to the right/left-- wont change
     // color:"green"
   },
-  ball:{
+  ball: {
     radius: 10,
     // x: canvas_width / 2, 
     x: 500,
@@ -36,7 +36,7 @@ export default {
     colors: ["blue", "orange"] //the second item changes the color of the bricks and everything-- find out why!
   },
   player: {
-    name: "LABBER",
+    name: "GUEST",
     lives: 3,
     score: 0,
     level: 1

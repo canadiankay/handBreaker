@@ -24,6 +24,11 @@ function App() {
             <li>
               <Link to="/">Home</Link>
             </li>
+            {isLoggedIn &&
+              <li>
+                <Link to="/" onClick={() => window.location.reload(false)}>Logout</Link>
+              </li>
+            }
             {!isLoggedIn && (
               <>
                 <li>

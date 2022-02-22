@@ -3,6 +3,8 @@ import navStyles from "../../styles/nav.css";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 function Nav() {
+  // right now it's empty but after connectign witht the table, you should have the leaderboard
+  // so you have something like a leaderboard variable with the info
   return (
     <nav className={navStyles.nav}>
       <ul>
@@ -12,6 +14,9 @@ function Nav() {
             position="bottom center"
           >
             <h4>this is a placeholder for the leaderboard</h4>
+            <table>
+              {/* here goes the leaderboard */}
+            </table>
           </Popup>
         </li>
       </ul>

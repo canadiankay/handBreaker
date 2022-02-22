@@ -11,6 +11,7 @@ import PaddleCollision from "./helpers/PaddleCollision";
 import Player from "./Player";
 import BrokenBricks from "./helpers/BrokenBricks";
 import ResetBall from "./helpers/ResetBall";
+import submitLeaderboard from './helpers/Leaderboard';
 
 let { ball, paddle, brick, player } = data;
 
@@ -54,6 +55,7 @@ export default function Canvas({ user }) {
 
       // restart/reset game if the player has no lives
       if (player.lives === 0) {
+        submitLeaderboard(player);
         alert("GAME OVER! Press OK to restart");
         //reset level to 1 after reset
         player.level = 1;
