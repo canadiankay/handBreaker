@@ -37,8 +37,9 @@ export default function Game ({user}) {
 //   }, 3000)
 // }, []);
 
-  const history = useNavigate();
-  const goToLeaderboard = () => history.push('/leaderboard');//eg.history.push('/login');
+  const navigate = useNavigate();
+  // this allows us to press the button on game page to go to leaderboard
+  const goToLeaderboard = () => navigate('/leaderboard');
 
   // this is for line 61
   const onClick = () => {
