@@ -7,10 +7,18 @@ import Canvas from './Canvas.js'
 import Popup from 'reactjs-popup';
 import Button from '../../components/Button.js'
 import Popup1 from '../../components/Popup1.js'
+// import StartButton from './StartButton.js'
+
 
 
 
 export default function Game () {
+
+  //useState(), which will help us to always re-render the page when we add new components
+  // set it to false by default
+  const [showGame, setShowGame]= useState(false);
+
+
   // this will set that variable for the pop up to true 
   const [gamePopup, setGamePopup] = useState(false);
   const [timedPopup, setTimedPopup] = useState();
@@ -26,8 +34,13 @@ useEffect(() => {
   const history = useHistory();
   const goToLeaderboard = () => history.push('/leaderboard');//eg.history.push('/login');
 
+  // this is for line 61
+  const onClick1 = () => {
+    console.log("clicked scores")
+  }
+
   const onClick = () => {
-    console.log("clicked")
+    console.log("clicked game")
   }
 
   const mainStyles ={
@@ -57,7 +70,7 @@ useEffect(() => {
           <Button 
             color='ORANGE' 
             text='YOUR SCORES' 
-            onClick={onClick} 
+            onClick={onClick1} 
             input="submit" 
           />}
           position="middle"
@@ -83,8 +96,21 @@ useEffect(() => {
             <p>My time triggered pop up</p>
         </Popup1> */}
       </main>
+      <div>
+
+        {/* this button will load the game when pressed */}
+      <Button
+        color='ORANGE' 
+        text='START GAME' 
+        onClick={() => setShowGame(!showGame)} 
+        input="submit" 
+      ></Button>
+
+      {/* if load game is true then show canvas component */}
+     { showGame && <Canvas />}
+      </div>
+
         
-        <Canvas />
 
       
 

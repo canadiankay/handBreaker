@@ -11,7 +11,6 @@ import PaddleCollision from './helpers/PaddleCollision';
 import Player from './Player';
 import BrokenBricks from './helpers/BrokenBricks';
 import ResetBall from './helpers/ResetBall'
-import StartButton from './StartButton.js'
 
 let { ball, paddle, brick, player } = data;
 
@@ -132,10 +131,6 @@ export default function Canvas() {
   return (
     
     <div> 
-      {/* we want to show start button first then canvas */}
-      <div>
-      <StartButton />
-      </div>
       <div className="canvas">
         {/* this is our gameboard */}
         {/* This is our game board/Canvas */}
