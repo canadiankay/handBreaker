@@ -1,6 +1,8 @@
-import React from 'react';
 
-const StartButton = ({ callback }) => {
+
+const StartButton = ({onClick}) => {
+
+  
 
   const startStyles= { 
     boxSizing: "border-box",
@@ -15,13 +17,16 @@ const StartButton = ({ callback }) => {
     fontFamily: "Pixel, Arial, Helvetica, sans-serif",
     fontSize: "1rem",
     outline: "none",
-    cursor: "pointer"
+    cursor: "pointer",
+    backgroundColor:"orange"
   }
+
+
 
   return (
 
-    <div>
-      <button style={startStyles} onClick={callback}>START GAME</button>
+    <div style={{display:"flex",justifyContent: "center", alignItems: "center"}}>
+      <button style={startStyles} onClick={onClick}><a href="/game">START</a></button>
       
     </div>
 
