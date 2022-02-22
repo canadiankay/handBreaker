@@ -121,7 +121,14 @@ export default function Canvas() {
       requestAnimationFrame(loop); // this keeps rendering the function and allows ball to move
   
     };
-    loop();
+
+
+ 
+    // game will begin in 3 seconds
+    setTimeout(() => {
+      loop();
+    }, 3000)
+   
 
   
 
@@ -149,6 +156,7 @@ export default function Canvas() {
             // console.log(paddle.x)
           }} // this works with setting width to 1000
           /> 
+          
       </div>
         
   </div>
