@@ -43,6 +43,7 @@ const Leaderboard = () => {
     <div>
       <h1> This is the leaderboard</h1>
       <table>
+      <tbody>
         <tr>
           <th>User</th>
           <th>Score</th>
@@ -53,6 +54,7 @@ const Leaderboard = () => {
             <td>{score.score}</td>
           </tr>
         ))}
+      </tbody>
       </table>
 
       <Leader />
