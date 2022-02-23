@@ -60,7 +60,7 @@ export default function Canvas({ user }) {
         submitLeaderboard(player);
         // alert ("GAME OVER! Press OK to restart")
         //reset level to 1 after reset
-        player.level = 1;
+        player.level = 0;
         player.lives = 3; //lives reset
         // reset the score to 0 after reset
         player.score = 0;
