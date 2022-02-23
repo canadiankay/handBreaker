@@ -86,7 +86,7 @@ const [scorePopup, setScorePopup] = useState(false);
      { showGame && <Canvas user={user} />}
       </div>
 
-      <section classname={howToPlayStyles}>
+      <section className={howToPlayStyles}>
         <button onClick={()=> setGamePopup(true) }>How to Play HERE</button>
         {/* this pop up will only appear if true */}
         <Popup1 trigger={gamePopup} setTrigger={setGamePopup}>
@@ -109,7 +109,7 @@ const [scorePopup, setScorePopup] = useState(false);
           input="submit" />
       </section>
 
-      <section classname={scoresStyles}>
+      <section className={scoresStyles}>
       <button onClick={()=> setScorePopup(true) }>SEE SCORES HERE</button>
         {/* this pop up will only appear if true */}
         <Popup1 trigger={scorePopup} setTrigger={setScorePopup}>
