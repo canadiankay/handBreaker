@@ -11,7 +11,7 @@ import { firebaseApp } from "../firebase";
 import '../../src/App.css';
 
 //use router
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 // import nav bar and header
 import Nav from './Nav.js'
@@ -19,7 +19,6 @@ import Header from './Header.js'
 import Footer from './Footer'
 import About from './About.js'
 import Game from '../games/game/index.js'
-import GameList from './GameList'
 import Leaderboard from './Leaderboard.js'
 import Login from "./Login.js";
 import Register from "./Register.js";
@@ -40,56 +39,40 @@ const Layout = () => {
       <div>
         <Nav isLoggedIn={isLoggedIn} />
 
-        <Header />
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <>
+              <Header />
+              <Game user={userInfo} />
+            </>
+          } 
+        />
 
-        <Link to="/">Home</Link>
+        <Route path="register" element={<Register />} />
+        
+        <Route
+          path="login"
+          element={
+            <Login
+              auth={auth}
+              toggleLoggedIn={toggleLoggedIn}
+              setUserInfo={setUserInfo}
+            />}
+        />
 
-        {/* if user is logged in  */}
-        {isLoggedIn &&
-          <Link to="/" onClick={() => window.location.reload(false)}>Logout</Link>
-        }
+        <Route path="/leaderboard" element={<Leaderboard />} />
 
-        {/* if user is not logged in */}
-        {!isLoggedIn && (
-          <>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
-          </>)
-        }
+        <Route path="/about" element={<About />} />
 
-        <Link to="/about">About</Link>
+      </Routes>
 
-
-
-        <Routes>
-          <Route path="/" element={<GameList />} />
-          <Route path="/game" element={<Game user={userInfo} />} />
-
-          <Route path="register" element={<Register />} />
-
-          <Route
-            path="login"
-            element={
-              <Login
-                auth={auth}
-                toggleLoggedIn={toggleLoggedIn}
-                setUserInfo={setUserInfo}
-              />}
-          />
-          <Route path="/leaderboard" element={<Leaderboard />}></Route>
-          <Route path="/about" element={<About />}></Route>
-
-        </Routes>
-
-        <Footer />
+      <Footer />
 
       </div>
 
     </Router>
-
-
-
-
   )
 }
 
