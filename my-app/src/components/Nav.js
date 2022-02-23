@@ -29,7 +29,7 @@ function Nav({isLoggedIn}) {
 
       {/* if user is logged in  */}
       {isLoggedIn &&
-        <Link to="/game" onClick={() => window.location.reload(false)}>LOGOUT</Link>
+        <Link to="/" onClick={() => window.location.reload(false)}>LOGOUT</Link>
       }
 
       {/* if user is not logged in */}

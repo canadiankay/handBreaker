@@ -19,7 +19,6 @@ import Header from './Header.js'
 import Footer from './Footer'
 import About from './About.js'
 import Game from '../games/game/index.js'
-import GameList from './GameList'
 import Leaderboard from './Leaderboard.js'
 import Login from "./Login.js";
 import Register from "./Register.js";
@@ -46,12 +45,11 @@ const Layout = () => {
           element={
             <>
               <Header />
-              <GameList/>
+              <Game user={userInfo} />
             </>
           } 
         />
         
-        <Route path="/game" element={<Game user={userInfo} />} />
 
         <Route path="register" element={<Register />} />
         
