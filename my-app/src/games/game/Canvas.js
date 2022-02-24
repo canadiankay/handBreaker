@@ -15,7 +15,7 @@ import submitLeaderboard from './helpers/SubmitLeaderboard';
 //import Handtrack from './Handtrack';
 
 let { ball, paddle, brick, player } = data;
-let pause = false;
+// let pause = false;
 
 // will have a state of bricks 
 let bricks = [];
@@ -164,7 +164,7 @@ export default function Canvas({ user }) {
             paddle.x = event.clientX - 500;
           }}
         />
-        <button onClick="pause">pause</button>
+        {/* <button onClick="pause">pause</button> */}
       </div>
 
 
