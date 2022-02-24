@@ -1,0 +1,19 @@
+nav {
+  background:Black;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  color: white;
+  width:  90% ;
+  height: 100px ;
+  border-radius: 100px ;
+  margin: auto;
+  box-shadow: orange 0px -10px 50px 10px; 
+
+}
+
+.boxed {
+  border: 25px solid orange;
+  border-radius: 40px;
+  background:orange;
+}
