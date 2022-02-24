@@ -10,7 +10,8 @@ nav {
   margin: auto;
   box-shadow: orange 0px -10px 50px 10px; 
   position:fixed;
-  top:0;
+  top:100px;
+  left: 50px;
 
 }
 
