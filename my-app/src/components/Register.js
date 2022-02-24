@@ -3,10 +3,10 @@ import "./register.css"
 const Register = () => {
   return (
   <div className="reg-page">
-      <div class="reg-box">
-      <h2>Registration</h2>
 
+      <div class="reg-box">
     <form>
+      <h2>Registration</h2>
       <div className="user-box">
         <input
           type="text"
