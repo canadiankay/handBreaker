@@ -111,13 +111,13 @@ header {
 
 .canvas {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items:flex-start;
+  justify-content: right;
 
 }
 #myCanvas {
-  background: #5fa886;
-  border: 10px solid rgb(0, 0, 0);
+  background: black;
+  border: 5px solid rgb(255, 214, 153);
   display: block;
 }
 

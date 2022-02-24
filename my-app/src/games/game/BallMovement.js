@@ -24,11 +24,11 @@ export function BallMovement(ctx, ball) {
       ctx.clearRect(0, 0, this.width, this.height); // clears each new render of the circle so doesnt leave a trail
       // takes in the ball's x and y position, radius and start angle and end angle (which is angle of circle)
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle="yellow";
+      ctx.fillStyle="#F0C777";
       
   
-      ctx.strokeStyle="red";
-      ctx.strokeWidth=5;
+      ctx.strokeStyle="white";
+      ctx.strokeWidth=3;
 
       ctx.fill(); //to fill circle
       ctx.stroke(); //to draw circle

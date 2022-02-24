@@ -8,14 +8,14 @@ export function PaddleMovement(ctx, canvas, paddle) {
       this.y = canvas.height - 30;
       this.width = paddle.width;
       this.height = 20;
-      this.colors = ["purple", "green"];
+      this.colors = ["#F0C777"];
     }
     // this draws AND moves paddle
     move() {
       ctx.beginPath();
       ctx.rect(this.x, this.y, this.width, this.height);
       ctx.fillStyle = this.broke ? "white" : this.colors[1];
-      ctx.strokeStyle = this.broke ? "white" : "red";
+      ctx.strokeStyle = this.broke ? "white" : "white";
       ctx.lineWidth = 2;
       ctx.fillStyle = this.broke ? "white" : this.colors[0]; //this actually changes the color of the paddle to colors in line 11
       ctx.shadowBlur = 10;
