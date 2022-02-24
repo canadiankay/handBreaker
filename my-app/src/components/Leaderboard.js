@@ -4,7 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import Leader from "./Leader.js"
 import { db } from "../firebase"
-
+import "./leaderboard.css"
 
 // right now it's empty but after connectign witht the table, you should have the leaderboard
 // so you have something like a leaderboard variable with the info
