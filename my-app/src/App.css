@@ -90,15 +90,15 @@ header {
 
 @keyframes aiImage {
   0%   { left:0px; top:0px;}
-  25%  { left:100px; top:0px;}
-  50%  { left:100px; top:100px;}
-  75%  { left:0px; top:100px;}
+  25%  { left:50px; top:0px;}
+  50%  { left:50px; top:50px;}
+  75%  { left:0px; top:50px;}
   100% { left:0px; top:0px;}
 }
 
 .header-title {
   font-family: "'Exo Medium', sans-serif";
-  font-size: 75px;
+  font-size: 100px;
   color:white;
   font-weight: bold;
   text-align: center;
