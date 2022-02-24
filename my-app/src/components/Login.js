@@ -41,8 +41,9 @@ const Login = ({ auth, toggleLoggedIn, setUserInfo }) => {
   return (
     <div className="login-page">
       <div class="login-box">
-      <h2>Login</h2>
         <form>
+        <span></span>
+        <h2>Login</h2>
           
           <span className="login-error">{error}</span>
           <div className="user-box">
