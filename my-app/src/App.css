@@ -31,6 +31,16 @@ body {
  
 } */
 
+.gametitle {
+  display:flex;
+  justify-content: center;
+  color: #F0C777;
+  background-color: transparent;
+  border-radius: 40px;
+  padding: 10px;
+  font-size: 100px;
+
+}
 
 header {
   background: #4d4949;
