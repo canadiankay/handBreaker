@@ -6,15 +6,12 @@ import "./gamelisthome.css"
 const GameListHome = ({userInfo}) => {
   return (
     <div className="game-container">
-      <div className="title"><h2>HANDBREAKER</h2></div>
       <div className="game-box">
       
       <Game user={userInfo} />
 
 
 
-     
-     
 
 
       </div>
