@@ -1,9 +1,9 @@
 // bottom container where game will go middle of home page
 import Game from '../games/game/index.js'
 
-import "./home.css"
+import "./gamelisthome.css"
 
-const Mainhome = ({userInfo}) => {
+const GameListHome = ({userInfo}) => {
   return (
     <div className="game-container">
       <div className="title"><h2>HANDBREAKER</h2></div>
@@ -22,4 +22,4 @@ const Mainhome = ({userInfo}) => {
   )
 }
 
-export default Mainhome
+export default GameListHome

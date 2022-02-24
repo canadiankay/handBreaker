@@ -21,7 +21,7 @@ import About from './About.js'
 import Leaderboard from './Leaderboard.js'
 import Login from "./Login.js";
 import Register from "./Register.js";
-import Mainhome from "./Mainhome.js";
+import GameListHome from "./GameListHome.js";
 
 
 
@@ -46,7 +46,7 @@ const Layout = () => {
           element={
             <>
               <Header />
-              <Mainhome />
+              <GameListHome />
               {/* <Game user={userInfo} /> */}
               <Footer />
             </>
