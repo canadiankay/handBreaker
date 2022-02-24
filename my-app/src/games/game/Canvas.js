@@ -12,7 +12,7 @@ import Player from './Player';
 import BrokenBricks from './helpers/BrokenBricks';
 import ResetBall from './helpers/ResetBall'
 import submitLeaderboard from './helpers/SubmitLeaderboard';
-import Handtrack from './Handtrack';
+//import Handtrack from './Handtrack';
 
 let { ball, paddle, brick, player } = data;
 let pause = false;
@@ -29,7 +29,7 @@ export default function Canvas({ user }) {
     player.name = user.email;
   }
 
-  Handtrack();
+  // Handtrack();
   //it's a component deadmount
   useEffect(() => {
     const loop = () => {
