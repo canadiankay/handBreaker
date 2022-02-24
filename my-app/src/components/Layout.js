@@ -46,6 +46,7 @@ const Layout = () => {
           element={
             <>
               <Header />
+              <div className="gametitle">HANDBREAKER</div>
               <GameListHome />
               {/* <Game user={userInfo} /> */}
               <Footer />
