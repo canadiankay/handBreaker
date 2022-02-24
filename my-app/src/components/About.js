@@ -1,7 +1,7 @@
 
-import "./about.css"
 const About = () => {
   const aboutPage = {
+    marginTop:"100px",
     position: "absolute",
     top: "60%",
     left: "50%",

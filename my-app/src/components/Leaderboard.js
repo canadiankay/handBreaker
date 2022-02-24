@@ -40,7 +40,8 @@ const Leaderboard = () => {
 
 
   return (
-    <div>
+    <div className="leader-page">
+      <div class="leader-box">
       <h1> This is the leaderboard</h1>
       <table>
       <tbody>
@@ -57,10 +58,11 @@ const Leaderboard = () => {
       </tbody>
       </table>
 
-      <Leader />
+      {/* <Leader /> */}
 
       <h4>Go back to <a href="/">GAME</a></h4>
 
+    </div>
     </div>
   )
 }

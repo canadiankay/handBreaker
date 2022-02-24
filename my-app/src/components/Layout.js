@@ -22,7 +22,7 @@ import Leaderboard from './Leaderboard.js'
 import Login from "./Login.js";
 import Register from "./Register.js";
 import GameListHome from "./GameListHome.js";
-
+import Game from "../games/game";
 
 
 const Layout = () => {
@@ -47,8 +47,8 @@ const Layout = () => {
             <>
               <Header />
               <div className="gametitle">HANDBREAKER</div>
-              <GameListHome />
-              {/* <Game user={userInfo} /> */}
+              <GameListHome user={userInfo}/>
+             
               <Footer />
             </>
           } 
