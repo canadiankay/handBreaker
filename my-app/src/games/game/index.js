@@ -54,7 +54,9 @@ export default function Game({ user }) {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    minHeight: "100vh"
+    minHeight: "100vh",
+    fontFamily:"'Exo', sans-serif",
+    font:"100px"
   }
 
   const scoresStyles = {
@@ -68,9 +70,7 @@ export default function Game({ user }) {
 
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-
-      <h1> HANDBREAKER</h1>
+    <div>
 
       <div>
         <h2>Ready to Play?</h2>
@@ -90,8 +90,8 @@ export default function Game({ user }) {
         <button onClick={() => setGamePopup(true)}>How to Play HERE</button>
         {/* this pop up will only appear if true */}
         <Popup1 trigger={gamePopup} setTrigger={setGamePopup}>
-          <h2>Welcome to HandBreaker</h2>
-          <p>This game is done using handtracking technology. You will be able to control the paddle with your hand!</p>
+          <h2>How to Play</h2>
+          <p>The game will begin three seconds after you press 'Start Game.' You will then be able to control the paddle using your mouse. You may also choose to control the paddle using your face or your hands by pressing 'Toggle Video'. </p>
         </Popup1>
 
         {/* this is our timed popup */}
@@ -109,16 +109,16 @@ export default function Game({ user }) {
           input="submit" />
       </section>
 
-      <section className={scoresStyles}>
+      {/* <section className={scoresStyles}>
         <button onClick={() => setScorePopup(true)}>SEE SCORES HERE</button>
-        {/* this pop up will only appear if true */}
+        
         <Popup1 trigger={scorePopup} setTrigger={setScorePopup}>
           <h1>insert user.name here</h1>
           <h2>Your Scores:</h2>
           <h2>Date</h2>
           <h4>Checkout other people's scores<a href="/leaderboard">HERE</a></h4>
         </Popup1>
-      </section>
+      </section> */}
 
 
 
