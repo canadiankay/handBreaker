@@ -9,7 +9,7 @@ nav {
   border-radius: 100px ;
   margin: auto;
   box-shadow: orange 0px -10px 50px 10px; 
-  position:fixed;
+  position:absolute;
   top:100px;
   left: 50px;
 
