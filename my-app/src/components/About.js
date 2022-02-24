@@ -24,8 +24,7 @@ const About = () => {
     <div>
       <main style={aboutStyle}>
         <p> 
-        A group of entry-level devleoppers, Dev, Nadia and Michel, interested in the world of AI and Gaming.
-        We want to create the next gaming portal for AI games only
+        MDN Games is your one-stop shop to AI based games.
         </p>
       </main>
 
