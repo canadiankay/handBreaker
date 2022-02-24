@@ -84,7 +84,7 @@ export default function Game({ user }) {
 
       <div>
         <Button
-          color='YELLOW'
+          // color='YELLOW'
           text='LEADERBOARD'
           onClick={goToLeaderboard}
           input="submit" />
