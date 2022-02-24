@@ -9,7 +9,7 @@ const Popup1 = (props) => {
     left:'0',
     width:'100%',
     height:'100vh',
-    backgroundColor:'palevioletred',
+    backgroundColor:'transparent',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
@@ -21,14 +21,20 @@ const Popup1 = (props) => {
     padding:'32px',
     width:'100%',
     maxWidth: '640px',
-    backgroundColor: 'white',
-    color: 'black'
+    backgroundColor: 'black',
+    color: 'white',
+    fontFamily: '"Exo", sans-serif',
+    fontSize: '35px',
+    alignItems: 'center'
   }
 
   const closeBtn={
     position: 'absolute',
     top:'16px',
-    right:'16px'
+    right:'16px',
+    fontSize: '16px',
+    fontFamily: '"Exo", sans-serif'
+
 
   }
 
