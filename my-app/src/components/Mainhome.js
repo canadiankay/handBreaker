@@ -6,16 +6,18 @@ import "./home.css"
 const Mainhome = ({userInfo}) => {
   return (
     <div className="game-container">
-      <h2>HANDBREAKER</h2>
-      {/* <Game user={userInfo} /> */}
-
-
-
-     
-     
-
-
+      <div className="title"><h2>HANDBREAKER</h2></div>
+      <div className="game-box">
       
+      <Game user={userInfo} />
+
+
+
+     
+     
+
+
+      </div>
     </div>
   )
 }

@@ -8,6 +8,7 @@ import Canvas from './Canvas.js'
 // import Popup from 'reactjs-popup';
 import Button from '../../components/Button.js'
 import Popup1 from '../../components/Popup1.js'
+import "./game.css"
 
 
 
@@ -38,8 +39,8 @@ export default function Game({ user }) {
   // }, []);
 
 
-  // this will allow us to set loading scores modal
-  const [scorePopup, setScorePopup] = useState(false);
+  // // this will allow us to set loading scores modal
+  // const [scorePopup, setScorePopup] = useState(false);
 
 
 
@@ -47,47 +48,27 @@ export default function Game({ user }) {
   // this allows us to press the button on game page to go to leaderboard
   const goToLeaderboard = () => navigate('/leaderboard');
 
-
-  const howToPlayStyles = {
-    padding: "32px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: "100vh",
-    fontFamily:"'Exo', sans-serif",
-    font:"100px"
-  }
-
-  const scoresStyles = {
-    padding: "32px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: "100vh"
-  }
-
-
   return (
-    <div>
+    <div className="game-ready">
 
-      <div>
         <h2>Ready to Play?</h2>
         {/* this button will load the game when pressed */}
         <Button
-          color='ORANGE'
+          className="start-btn"
           text='START GAME'
           onClick={loadGame}
           input="submit"
         ></Button>
+        <div>
 
         {/* if load game is true then show canvas component */}
         {showGame && <Canvas user={user} />}
-      </div>
 
-      <section className={howToPlayStyles}>
-        <button onClick={() => setGamePopup(true)}>How to Play HERE</button>
+        </div>
+      
+
+      <div className="howTo">
+        <button onClick={() => setGamePopup(true)}>HOW TO PLAY</button>
         {/* this pop up will only appear if true */}
         <Popup1 trigger={gamePopup} setTrigger={setGamePopup}>
           <h2>How to Play</h2>
@@ -99,15 +80,15 @@ export default function Game({ user }) {
             <h2>my Timed Pop up</h2>
             <p>My time triggered pop up</p>
         </Popup1> */}
-      </section>
+      </div>
 
-      <section>
+      <div>
         <Button
           color='YELLOW'
           text='LEADERBOARD'
           onClick={goToLeaderboard}
           input="submit" />
-      </section>
+      </div>
 
       {/* <section className={scoresStyles}>
         <button onClick={() => setScorePopup(true)}>SEE SCORES HERE</button>
