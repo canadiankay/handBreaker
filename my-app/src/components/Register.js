@@ -2,7 +2,7 @@
 const Register = () => {
   return (
     <>
-    <h1> INSERT REGISTER FORM HERE</h1>
+    <h1> CREATE AN ACCOUNT WITH MDN GAMES HERE:</h1>
     <form>
     <div>
         Username:
