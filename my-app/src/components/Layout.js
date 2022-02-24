@@ -18,10 +18,10 @@ import Nav from './Nav.js'
 import Header from './Header.js'
 import Footer from './Footer'
 import About from './About.js'
-import Game from '../games/game/index.js'
 import Leaderboard from './Leaderboard.js'
 import Login from "./Login.js";
 import Register from "./Register.js";
+import Mainhome from "./Mainhome.js";
 
 
 
@@ -46,7 +46,8 @@ const Layout = () => {
           element={
             <>
               <Header />
-              <Game user={userInfo} />
+              <Mainhome />
+              {/* <Game user={userInfo} /> */}
               <Footer />
             </>
           } 

@@ -7,7 +7,7 @@ const Mainhome = ({userInfo}) => {
   return (
     <div className="game-container">
       <h2>HANDBREAKER</h2>
-     
+      {/* <Game user={userInfo} /> */}
 
 
 
