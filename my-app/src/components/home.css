@@ -1,0 +1,17 @@
+.game-container {
+  margin: 100px;
+  width: auto;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.games-container h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Eko', sans-serif;
+}
