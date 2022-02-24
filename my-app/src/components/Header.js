@@ -8,7 +8,7 @@ const Header = () => {
   return (
       <header>
        <div className="header-title" >WELCOME TO MDN GAMES</div>
-       <div className="div-ai"><img src={background} className="img-ai"/></div>
+       <div className="div-ai"><img src={background} alt="" className="img-ai"/></div>
       </header>
     
   )
