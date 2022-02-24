@@ -1,37 +1,41 @@
 
+import "./register.css"
 const Register = () => {
   return (
-    <>
-    <h1> CREATE AN ACCOUNT WITH MDN GAMES HERE:</h1>
+  <div className="reg-page">
+      <div class="reg-box">
+      <h2>Registration</h2>
+
     <form>
-    <div>
-        Username:
+      <div className="user-box">
         <input
           type="text"
-          placeholder="Username"/>
+          name=""
+          required=""/>
+        <label>Email:</label>
       </div>
 
-      <div>
-        Email:
-        <input
-          type="text"
-          placeholder="Email"/>
-      </div>
-
-      <div>
-        Password:
+      <div className="user-box">
         <input
           type="password"
-          placeholder="Password"/>
+          name=""
+          required=""/>
+        <label>Password:</label>
       </div>
 
-      <button type="button" input="submit">
-        Register
-      </button>
+      <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <button input="submit" type="button" >SUBMIT</button>
+          </a>
+
     </form>
     
     
-    </>
+    </div>
+    </div>
 
 
 
