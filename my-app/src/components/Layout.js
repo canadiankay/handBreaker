@@ -32,12 +32,13 @@ const Layout = () => {
 
   const [isLoggedIn, toggleLoggedIn] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
-
+  
   // Link lets user change the URL on browser
   return (
     <Router>
       <div>
         <Nav isLoggedIn={isLoggedIn} />
+        
 
       <Routes>
         <Route 
@@ -46,6 +47,7 @@ const Layout = () => {
             <>
               <Header />
               <Game user={userInfo} />
+              <Footer />
             </>
           } 
         />
@@ -69,10 +71,11 @@ const Layout = () => {
       </Routes>
 
 
-      <Footer />
       </div>
+      
 
     </Router>
+    
   )
 }
 
