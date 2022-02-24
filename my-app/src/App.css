@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  font: "Teko", sans-serif;
+}
+
 /* this styles the whole site */
 body {
   color: #ffffff;
@@ -14,24 +21,83 @@ body {
   overflow: auto;
 } 
 
+/* header {
+  position: absolute;
+  width: 1333px;
+  height: 936px;
+  left: 63px;
+  top: 42px;
+  background-image: url("../imgs/Ai.jpeg");
+ 
+} */
 
 
-* {
-  margin: 0;
-  padding: 0;
+header {
+  background: #4d4949;
+  width:100%;
+  top: 100px;
+  border-radius: 158px;
+  font-size: 50px;
+  height: 1000px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
 
-  font: "Helvetica Neue", sans-serif;
+  animation-name: headerscreen;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+
+}
+@keyframes headerscreen {
+  0%   {background-color: #685645;}
+  25%  {background-color: #a1792e;}
+  50%  {background-color: #df8b0e;}
+  100% {background-color: #eea300;}
 }
 
-/* may want to leave this as main */
-/* main{
-  padding: 32px;
+.div-ai {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-} */
+  justify-content: flex-end;
+  padding-top: 40px;
+  width: 80%;
+  height:80%
+
+}
+
+.img-ai {
+  width: 80%;
+  height: 80%;
+  box-shadow: rgb(255, 255, 255) 0px -10px 30px 10px; 
+  border-radius: 80px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  
+}
+
+.header-title {
+  font-family: "'Exo Medium', sans-serif";
+  font-size: 75px;
+  color:white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.popup{
+  border-color: #000; 
+  border-style: groove; 
+  border-width: 2px; 
+  padding: 0px; 
+  background-color: #FFF;
+  font-size: 70%;
+  position: absolute;
+  top: 200px;
+}
+
+
 
 .canvas {
   display: flex;
@@ -59,6 +125,30 @@ body {
 }
 
  
+
+
+footer {
+  display: flexbox;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  position:bottom;
+  
+  padding: 10px;
+  border-top: 1px solid #eaeaea;
+  background-color: rgb(255, 115, 0);
+  bottom:0;
+  border-radius:10px;
+  
+}
+
+footer p {
+  font-family:"'Exo', sans-serif";
+  font: size 1.5rem;
+  font-weight: bold;
+  
+}
+
 .grid {
   display: flex;
   align-items: center;
@@ -96,38 +186,4 @@ body {
   font-size: 1.25rem;
   line-height: 1.5;
   font-style:italic;
-}
-
-
-footer {
-  display: flexbox;
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: center;
- position:bottom;
-
-  padding: 10px;
-  border-top: 1px solid #eaeaea;
-  background-color: rgb(255, 115, 0);
-  bottom:0;
-  border-radius:10px;
-  
-}
-
-footer p {
-  font-family:"'Exo', sans-serif";
-  font: size 1.5rem;
-  font-weight: bold;
-
-}
-
-.popup{
-  border-color: #000; 
-  border-style: groove; 
-  border-width: 2px; 
-  padding: 0px; 
-  background-color: #FFF;
-  font-size: 70%;
-  position: absolute;
-  top: 200px;
 }
