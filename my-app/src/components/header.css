@@ -19,8 +19,18 @@ header {
   display: flex; 
   align-items: center;
   justify-content: center;
-  margin-left: auto
+  margin-left: auto;
 
+  animation-name: headerscreen;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+
+}
+@keyframes headerscreen {
+  0%   {background-color: #685645;}
+  25%  {background-color: #a1792e;}
+  50%  {background-color: #df8b0e;}
+  100% {background-color: #eea300;}
 }
 
 .div-ai {
