@@ -68,8 +68,8 @@ const Layout = () => {
 
       </Routes>
 
-      <Footer />
 
+      <Footer />
       </div>
 
     </Router>
