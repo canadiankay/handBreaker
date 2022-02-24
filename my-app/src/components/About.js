@@ -1,6 +1,18 @@
 
-
+import "./about.css"
 const About = () => {
+  const aboutPage = {
+    position: "absolute",
+    top: "60%",
+    left: "50%",
+    width: "500px",
+    height:"700px",
+    transform: "translate(-50%, -50%)",
+    background: "rgba(0,0,0,.5)",
+    boxSizing: "border-box",
+    boxShadow: "0 15px 25px rgba(0,0,0,.6)",
+    borderRadius: "10px",
+  }
 
   const aboutStyle = {
     color: "orange",
@@ -21,28 +33,26 @@ const About = () => {
     margin: "30px 500px"
   }
   return (
-    <div>
-      <main style={aboutStyle}>
-        <p> 
-        MDN Games is your one-stop shop to AI based games.
-        </p>
-      </main>
+    <div className={aboutPage}>
+      <div style={aboutStyle}>
+      <h1>About Us Page</h1>
+        <p> MDN Games is your one-stop shop to AI based games.</p>
+      </div>
 
-      <body> 
 
-        <section style={eachDeveloperStyle}>
+        <div style={eachDeveloperStyle}>
           <a href="https://github.com/devendrachitanna">Devendra Chitanna</a>
-        </section>
+        </div>
 
-      <section style={eachDeveloperStyle}>
+      <div style={eachDeveloperStyle}>
           <a href="https://github.com/MotongiM">Michel Motongi</a>
-        </section>
+        </div>
 
-        <section style={eachDeveloperStyle}>
+        <div style={eachDeveloperStyle}>
           <a href="https://github.com/canadiankay">Nadia Kasim</a>
-        </section>
+        </div>
 
-      </body>
+
     
     </div>
   )
